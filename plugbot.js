@@ -15,6 +15,7 @@ var autoskip;
 var autochange;
 var hideVideo;
 var userList;
+var strobe;
 var skippingVideo = false;
 var hideVideoTemp = false;
 var COOKIE_WOOT = 'autowoot';
@@ -63,6 +64,7 @@ function displayUI()
         var cQueue = autoqueue ? '#3FFF00' : '#ED1C24';;
         var cHideVideo = hideVideo ? '#3FFF00' : '#ED1C24';
         var cUserList = userList ? '#3FFF00' : '#ED1C24';
+		var cStrobe = strobe ? '#d1d1d1' : '#d1d1d1' ;
   	
         $('#plugbot-ui').append(
                 '<center><p id="plugbot-btn-woot" style="color:' + cWoot +
@@ -274,12 +276,52 @@ function initUIListeners()
 				$('#plugbot-btn-change').live('click', function()
         {
 				
-				{
-				setInterval(function(){
-				var x = Math.floor((Math.random()*9)+1);
-				javascript:Models.user.changeAvatar("halloween0" + x );
-				}, 1000);
-				};
+var avatarStrobe = {
+	on: true
+	, speed: 500
+	, interval: null
+	, avatars: []
+	, stop: function() {
+		clearInterval(avatarStrobe.interval);
+	}
+	, start: function(speed) {
+		avatarStrobe.stop();
+
+		for(var i = 1; i <= 13; i++) {
+			avatarStrobe.avatars.push('halloween' + (i <= 9 ? '0' : '') + i);
+		}
+		
+		$('#avatar-panel img').each(function() { 
+			var src = $(this).attr('src');
+			var srcParts = src.split('/');
+			var fileName = srcParts[srcParts.length-1];
+			var nameParts = fileName.split('.');
+			var avatarName = nameParts[0];
+			
+			avatarStrobe.avatars.push(avatarName); 
+		});
+
+		avatarStrobe.interval = setInterval(function() {
+			if(!avatarStrobe.on) return;
+			
+			if(avatarStrobe.avatars.length == 0) {
+				console.log('unable to load avatars. stopping.');
+				avatarStrobe.stop();
+			}
+			
+			var index = Math.floor(Math.random() * avatarStrobe.avatars.length);
+			var avatar = avatarStrobe.avatars[index];
+
+			if(avatar) {
+				Models.user.changeAvatar(avatar);
+			}
+			else {
+				console.log('derp! index=' + index)
+			}
+		}, speed || avatarStrobe.speed);
+	}
+};
+avatarStrobe.start();
  
         });
 
