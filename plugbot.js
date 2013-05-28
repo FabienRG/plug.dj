@@ -7,7 +7,7 @@
  
 var active = "activé"
 
-setTimeout(function(){ log('Plugbot est maintenant ' + active.fontcolor('lightgreen') + '. Version 1.0.') },1000);
+setTimeout(function(){ log('Plugbot est maintenant ' + active.fontcolor('lightgreen') + '. Version 1.1') },1000);
 
 var autowoot;
 var autoqueue;
