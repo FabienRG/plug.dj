@@ -13,7 +13,7 @@ var active = "en ligne"
 setTimeout(function(){ log('Chatbot est maintenant ' + active.fontcolor('lightgreen') + '. ©FabienRG.') },1000);
 
 (function() {
-  var Command, RoomHelper, User, afkCheck, afksCommand, allAfksCommand, announceCurate, antispam, apiHooks, tutoCommand, smileyCommand, sosCommand, aideCommand, suggestCommand, badQualityCommand, beggar, chatCommandDispatcher, chatUniversals, cmds, data, handleNewSong, handleUserJoin, handleUserLeave, handleVote, hook, initEnvironment, initHooks, initialize, lockCommand, msToStr, populateUserData, resetAfkCommand, roomHelpCommand, rulesCommand, settings, skipCommand, statusCommand, themeCommand, undoHooks, unhook, unlockCommand, updateVotes, whyMehCommand, whyWootCommand, wootCommand,
+  var Command, RoomHelper, User, afkCheck, afksCommand, allAfksCommand, announceCurate, antispam, apiHooks, tutoCommand, smileyCommand, sosCommand, chaineCommand, aideCommand, suggestCommand, badQualityCommand, beggar, chatCommandDispatcher, chatUniversals, cmds, data, handleNewSong, handleUserJoin, handleUserLeave, handleVote, hook, initEnvironment, initHooks, initialize, lockCommand, msToStr, populateUserData, resetAfkCommand, roomHelpCommand, rulesCommand, settings, skipCommand, statusCommand, themeCommand, undoHooks, unhook, unlockCommand, updateVotes, whyMehCommand, whyWootCommand, wootCommand,
     __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
     __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; },
     __hasProp = {}.hasOwnProperty,
@@ -1092,15 +1092,41 @@ setTimeout(function(){ log('Chatbot est maintenant ' + active.fontcolor('lightgr
       msg = "Voici les commandes disponibles pour le staff : ";
       msg += "/lock, /unlock, /skip, /bad, /resetafk, /afks, /allafks, /suggest ";
     msg += "/welcome, /rules, /theme, /tuto, /smiley, /woot, /whywoot, /whymeh ";
-	  msg += "/sos, /status, /cmd :no_entry:";
+	  msg += "/sos, /status, /chaine, /cmd :no_entry:";
       API.sendChat(msg);
     };
 
     return aideCommand;
+	
+	  })(Command);
+  
+        chaineCommand = (function(_super) {
+
+    __extends(chaineCommand, _super);
+
+    function chaineCommand() {
+      return chaineCommand.__super__.constructor.apply(this, arguments);
+    }
+
+    chaineCommand.prototype.init = function() {
+      this.command = '/chaine';
+      this.parseType = 'exact';
+      return this.rankPrivelege = 'bouncer';
+    };
+
+    chaineCommand.prototype.functionality = function() {
+      var msg;
+      msg = "Tu ne sais pas quoi diffuser comme contenu? ";
+      msg += "Viens faire un tour sur le post d'@Eric71 qui regroupe un grand nombre de chaîne :";
+    msg += " http://realitygaming.fr/threads/168001/ :sound:";
+      API.sendChat(msg);
+    };
+
+    return chaineCommand;
 
   })(Command);  
 
-  cmds = [suggestCommand, aideCommand, sosCommand, smileyCommand, tutoCommand, whyWootCommand, themeCommand, rulesCommand, roomHelpCommand, wootCommand, badQualityCommand, afksCommand, allAfksCommand, statusCommand, lockCommand, unlockCommand, whyMehCommand, skipCommand, resetAfkCommand];
+  cmds = [suggestCommand, chaineCommand, aideCommand, sosCommand, smileyCommand, tutoCommand, whyWootCommand, themeCommand, rulesCommand, roomHelpCommand, wootCommand, badQualityCommand, afksCommand, allAfksCommand, statusCommand, lockCommand, unlockCommand, whyMehCommand, skipCommand, resetAfkCommand];
 
   chatCommandDispatcher = function(chat) {
     var c, cmd, _i, _len, _results;
