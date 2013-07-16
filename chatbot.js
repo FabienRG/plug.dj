@@ -1123,9 +1123,7 @@ setTimeout(function(){ log('Chatbot est maintenant ' + active.fontcolor('lightgr
     };
 
     return chaineCommand;
-
-  })(Command);  
-
+  
   cmds = [suggestCommand, chaineCommand, aideCommand, sosCommand, smileyCommand, tutoCommand, whyWootCommand, themeCommand, rulesCommand, roomHelpCommand, wootCommand, badQualityCommand, afksCommand, allAfksCommand, statusCommand, lockCommand, unlockCommand, whyMehCommand, skipCommand, resetAfkCommand];
 
   chatCommandDispatcher = function(chat) {
@@ -1212,6 +1210,16 @@ setTimeout(function(){ log('Chatbot est maintenant ' + active.fontcolor('lightgr
     responses = ["Bonne idee @{beggar}!  Les fans ne tombent pas du ciel. ;)", "Les gars ! @{beggar} vient de demander pour avoir des fans, on le fait ?! :trollface:", "Serieux @{beggar}...", "@{beggar}. Diffuse du bon contenu et soit aimable avec les personnes presentes pour obtenir des fans de facon legit ! :trollface:"];
     r = Math.floor(Math.random() * responses.length);
     if (msg.indexOf('fan me') !== -1 || msg.indexOf('fan for fan') !== -1 || msg.indexOf('fan pls') !== -1 || msg.indexOf('fan4fan') !== -1 || msg.indexOf('fan stp') !== -1 || msg.indexOf('je veux des fans') !== -1 || msg.indexOf('fan moi') !== -1 || msg.indexOf('deviens fan') !== -1 || msg.indexOf('add me to fan') !== -1) {
+      return API.sendChat(responses[r].replace("{beggar}", chat.from));
+    }
+  };
+  
+  beggar = function(chat) {
+    var msg, r, responses;
+    msg = chat.message.toLowerCase();
+    responses = ["/me give un whisky coca à @{beggar} ! :cocktail:", "/me offre une Desperados bien fraiche à @{beggar}. :beer:", "/me propose à @{beggar} de boire du kiddibulle, car il a l'air fort ce petit. :baby_bottle:", "/me donne du Jack Daniel's à @{beggar}, fais-en bon usage. :hammer:", "/me est généreux et offre une bière à tout le monde ! :beers:", "/me offre un Coca sans bulles à @{beggar}. :trollface:"];
+    r = Math.floor(Math.random() * responses.length);
+    if (msg.indexOf('/give') !== -1) {
       return API.sendChat(responses[r].replace("{beggar}", chat.from));
     }
   };
