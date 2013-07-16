@@ -1123,7 +1123,9 @@ setTimeout(function(){ log('Chatbot est maintenant ' + active.fontcolor('lightgr
     };
 
     return chaineCommand;
-  
+
+  })(Command);  
+
   cmds = [suggestCommand, chaineCommand, aideCommand, sosCommand, smileyCommand, tutoCommand, whyWootCommand, themeCommand, rulesCommand, roomHelpCommand, wootCommand, badQualityCommand, afksCommand, allAfksCommand, statusCommand, lockCommand, unlockCommand, whyMehCommand, skipCommand, resetAfkCommand];
 
   chatCommandDispatcher = function(chat) {
@@ -1220,6 +1222,22 @@ setTimeout(function(){ log('Chatbot est maintenant ' + active.fontcolor('lightgr
     return beggar(chat);
   };
 
+      beggar = function(chat) {
+    var msg, r, responses;
+    msg = chat.message.toLowerCase();
+    responses = ["/me give un whisky coca à @{beggar} ! :cocktail:", "/me offre une Desperados bien fraiche à @{beggar}. :beer:", "/me propose à @{beggar} de boire du kiddibulle, car il a l'air fort ce petit. :baby_bottle:", "/me donne du Jack Daniel's à @{beggar}, fais-en bon usage. :hammer:", "/me est généreux et offre une bière à tout le monde ! :beers:", "/me offre un Coca sans bulles à @{beggar}. :trollface:"];
+    r = Math.floor(Math.random() * responses.length);
+    if (msg.indexOf('/give') !== -1) {
+      return API.sendChat(responses[r].replace("{beggar}", chat.from));
+    }
+  };
+  
+    chatUniversals = function(chat) {
+    data.activity(chat);
+    antispam(chat);
+    return beggar(chat);
+  };
+  
   hook = function(apiEvent, callback) {
     return API.addEventListener(apiEvent, callback);
   };
