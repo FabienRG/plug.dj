@@ -1090,8 +1090,8 @@ setTimeout(function(){ log('Chatbot est maintenant ' + active.fontcolor('lightgr
     aideCommand.prototype.functionality = function() {
       var msg;
       msg = "Voici les commandes disponibles pour le staff : ";
-      msg += "/lock, /unlock, /skip, /bad, /resetafk, /afks, /allafks, /suggest ";
-    msg += "/welcome, /rules, /theme, /tuto, /smiley, /woot, /whywoot, /whymeh ";
+      msg += "/lock, /unlock, /skip, /bad, /resetafk, /afks, /allafks, /suggest, ";
+    msg += "/welcome, /rules, /theme, /tuto, /smiley, /woot, /whywoot, /whymeh, ";
 	  msg += "/sos, /status, /chaine, /cmd :no_entry:";
       API.sendChat(msg);
     };
