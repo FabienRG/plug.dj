@@ -10,7 +10,6 @@ var version = "Script en provenance de RealityGaming.fr activé !";
 var version2 = "Merci d'éviter d'abuser des fonctions de celui-ci.";
 var version3 = ".";
 var changeLog = "©FabienRG";
-var autochange;
 appendToChat(version, null, "#00E1FF");
 appendToChat(version2, null, "#09FF00");
 appendToChat(version3, null, "#FFFF00");
@@ -223,129 +222,6 @@ function displayUI(data) {
             '<p id="lights-menu">Lights</p>' +
             '</div>'
     );
-	
-	var cChange = autochange ? '#42A5DC' : '#42A5DC' ;
-
-        $('#plugbot-ui1').append(
-				'<center><p id="plugbot-btn-change" style="color:' + cChange + 
-				'">AUTOCHANGE</p></center>');
-
-		$('#dj-booth').prepend('<div id="plugbot-ui2"></div>');
-
-		var cHall01 = halloween01 ? '#d1d1d1' : '#d1d1d1' ;
-		var halloween01 ;
-
-		$('#plugbot-ui2').append(
-				'<center><p id="plugbot-btn-halloween01" style="color:' + cHall01 + 
-				'">01</p></center>');
-
-		$('#dj-booth').prepend('<div id="plugbot-ui3"></div>');
-
-		var cHall02 = halloween02 ? '#d1d1d1' : '#d1d1d1' ;
-		var halloween02 ;
-
-		$('#plugbot-ui3').append(
-				'<center><p id="plugbot-btn-halloween02" style="color:' + cHall02 + 
-				'">02</p></center>');
-
-		$('#dj-booth').prepend('<div id="plugbot-ui4"></div>');
-
-		var cHall03 = halloween03 ? '#d1d1d1' : '#d1d1d1' ;
-		var halloween03 ;
-
-		$('#plugbot-ui4').append(
-				'<center><p id="plugbot-btn-halloween03" style="color:' + cHall03 + 
-				'">03</p></center>');
-
-		$('#dj-booth').prepend('<div id="plugbot-ui5"></div>');
-
-		var cHall04 = halloween04 ? '#d1d1d1' : '#d1d1d1' ;
-		var halloween04 ;
-
-		$('#plugbot-ui5').append(
-				'<center><p id="plugbot-btn-halloween04" style="color:' + cHall04 + 
-				'">04</p></center>');
-
-		$('#dj-booth').prepend('<div id="plugbot-ui6"></div>');
-
-		var cHall05 = halloween05 ? '#d1d1d1' : '#d1d1d1' ;
-		var halloween05 ;
-
-		$('#plugbot-ui6').append(
-				'<center><p id="plugbot-btn-halloween05" style="color:' + cHall05 + 
-				'">05</p></center>');
-
-		$('#dj-booth').prepend('<div id="plugbot-ui7"></div>');
-
-		var cHall06 = halloween06 ? '#d1d1d1' : '#d1d1d1' ;
-		var halloween06 ;
-
-		$('#plugbot-ui7').append(
-				'<center><p id="plugbot-btn-halloween06" style="color:' + cHall06 + 
-				'">06</p></center>');
-
-		$('#dj-booth').prepend('<div id="plugbot-ui8"></div>');
-
-		var cHall07 = halloween07 ? '#d1d1d1' : '#d1d1d1' ;
-		var halloween07 ;
-
-		$('#plugbot-ui8').append(
-				'<center><p id="plugbot-btn-halloween07" style="color:' + cHall07 + 
-				'">07</p></center>');
-
-		$('#dj-booth').prepend('<div id="plugbot-ui9"></div>');
-
-		var cHall08 = halloween08 ? '#d1d1d1' : '#d1d1d1' ;
-		var halloween08 ;
-
-		$('#plugbot-ui9').append(
-				'<center><p id="plugbot-btn-halloween08" style="color:' + cHall08 + 
-				'">08</p></center>');
-
-		$('#dj-booth').prepend('<div id="plugbot-ui10"></div>');
-
-		var cHall09 = halloween09 ? '#d1d1d1' : '#d1d1d1' ;
-		var halloween09 ;
-
-		$('#plugbot-ui10').append(
-				'<center><p id="plugbot-btn-halloween09" style="color:' + cHall09 + 
-				'">09</p></center>');
-
-		$('#dj-booth').prepend('<div id="plugbot-ui11"></div>');
-
-		var cHall10 = halloween10 ? '#d1d1d1' : '#d1d1d1' ;
-		var halloween10 ;
-
-		$('#plugbot-ui11').append(
-				'<center><p id="plugbot-btn-halloween10" style="color:' + cHall10 + 
-				'">10</p></center>');
-
-		$('#dj-booth').prepend('<div id="plugbot-ui12"></div>');
-
-		var cHall11 = halloween11 ? '#d1d1d1' : '#d1d1d1' ;
-		var halloween11 ;
-
-		$('#plugbot-ui12').append(
-				'<center><p id="plugbot-btn-halloween11" style="color:' + cHall11 + 
-				'">11</p></center>');
-
-		$('#dj-booth').prepend('<div id="plugbot-ui13"></div>');
-
-		var cHall12 = halloween12 ? '#d1d1d1' : '#d1d1d1' ;
-		var halloween12 ;
-
-		$('#plugbot-ui13').append(
-				'<center><p id="plugbot-btn-halloween12" style="color:' + cHall12 + 
-				'">12</p></center>');
-
-		$('#dj-booth').prepend('<div id="plugbot-ui14"></div>');
-
-		var cHall13 = halloween13 ? '#d1d1d1' : '#d1d1d1' ;
-		var halloween13 ;
-
-		$('#plugbot-ui14').append(
-				'<center><p id="plugbot-btn-halloween13" style="color:' + cHall13 + 
-				'">13</p></center>');
 }
 function initUIListeners()
 {
@@ -857,122 +733,7 @@ function initUIListeners()
         alert("realityg Plug BETA 0.5.5 (Juillet 2013)\n\n@author : FabienRG\n@helper : OriginNRG\n@website : http://RealityGaming.fr/");
     });
 	
-$('#plugbot-btn-halloween01').live('click', function()
-        {		
-		javascript:Models.user.changeAvatar("halloween01");
-        });
 
-		$('#plugbot-btn-halloween02').live('click', function()
-        {		
-		javascript:Models.user.changeAvatar("halloween02");
-        });
-
-		$('#plugbot-btn-halloween03').live('click', function()
-        {		
-		javascript:Models.user.changeAvatar("halloween03");
-        });
-
-		$('#plugbot-btn-halloween04').live('click', function()
-        {		
-		javascript:Models.user.changeAvatar("halloween04");
-        });
-
-		$('#plugbot-btn-halloween05').live('click', function()
-        {		
-		javascript:Models.user.changeAvatar("halloween05");
-        });
-
-		$('#plugbot-btn-halloween06').live('click', function()
-        {		
-		javascript:Models.user.changeAvatar("halloween06");
-        });
-
-		$('#plugbot-btn-halloween07').live('click', function()
-        {		
-		javascript:Models.user.changeAvatar("halloween07");
-        });
-
-		$('#plugbot-btn-halloween08').live('click', function()
-        {		
-		javascript:Models.user.changeAvatar("halloween08");
-        });
-
-		$('#plugbot-btn-halloween09').live('click', function()
-        {		
-		javascript:Models.user.changeAvatar("halloween09");
-        });
-
-		$('#plugbot-btn-halloween10').live('click', function()
-        {		
-		javascript:Models.user.changeAvatar("halloween10");
-        });
-
-		$('#plugbot-btn-halloween11').live('click', function()
-        {		
-		javascript:Models.user.changeAvatar("halloween11");
-        });
-
-		$('#plugbot-btn-halloween12').live('click', function()
-        {		
-		javascript:Models.user.changeAvatar("halloween12");
-        });
-
-		$('#plugbot-btn-halloween13').live('click', function()
-        {		
-		javascript:Models.user.changeAvatar("halloween13");
-        });
-		
-		$('#plugbot-btn-change').live('click', function()
-        {
-		
-var avatarStrobe = {
-	on: true
-	, speed: 500
-	, interval: null
-	, avatars: []
-	, stop: function() {
-		clearInterval(avatarStrobe.interval);
-	}
-	, start: function(speed) {
-		avatarStrobe.stop();
-
-		for(var i = 1; i <= 13; i++) {
-			avatarStrobe.avatars.push('halloween' + (i <= 9 ? '0' : '') + i);
-		}
-
-		$('#avatar-panel img').each(function() { 
-			var src = $(this).attr('src');
-			var srcParts = src.split('/');
-			var fileName = srcParts[srcParts.length-1];
-			var nameParts = fileName.split('.');
-			var avatarName = nameParts[0];
-
-			avatarStrobe.avatars.push(avatarName); 
-		});
-
-		avatarStrobe.interval = setInterval(function() {
-			if(!avatarStrobe.on) return;
-
-			if(avatarStrobe.avatars.length == 0) {
-				console.log('unable to load avatars. stopping.');
-				avatarStrobe.stop();
-			}
-
-			var index = Math.floor(Math.random() * avatarStrobe.avatars.length);
-			var avatar = avatarStrobe.avatars[index];
-
-			if(avatar) {
-				Models.user.changeAvatar(avatar);
-			}
-			else {
-				console.log('derp! index=' + index)
-			}
-		}, speed || avatarStrobe.speed);
-	}
-};
-avatarStrobe.start();
- 
-        });
 	
 }
 
@@ -1311,7 +1072,7 @@ var customChatCommand = function(value) {
     }
     if (/^.wut (.*)$/.exec(value)) {
         if(!recentEmote){
-            setTimeout(function() {API.sendChat(RegExp.$1+" à² _à² ")}, 50);
+            setTimeout(function() {API.sendChat(RegExp.$1+" à² _à² ")}, 50);
             recentEmote = true;
             setTimeout(function(){ recentEmote = false; },60000);
             return true;
@@ -1333,7 +1094,7 @@ var customChatCommand = function(value) {
     }
     if (/^.throw (.*)$/.exec(value)) {
         if(!recentEmote){
-            setTimeout(function() {API.sendChat(RegExp.$1+" (ãƒŽà² ç›Šà² )ãƒŽå½¡ ")}, 50);
+            setTimeout(function() {API.sendChat(RegExp.$1+" (ãƒŽà² ç›Šà² )ãƒŽå½¡ ")}, 50);
             recentEmote = true;
             setTimeout(function(){ recentEmote = false; },60000);
             return true;
@@ -1400,7 +1161,7 @@ var customChatCommand = function(value) {
 
     if (value.indexOf("/throw") === 0) {
         if(!recentEmote){
-            setTimeout(function(){API.sendChat("/me (ãƒŽà² ç›Šà² )ãƒŽå½¡")}, 50);
+            setTimeout(function(){API.sendChat("/me (ãƒŽà² ç›Šà² )ãƒŽå½¡")}, 50);
             recentEmote = true;
             setTimeout(function(){recentEmote = false;},60000);
             return true;
@@ -1411,7 +1172,7 @@ var customChatCommand = function(value) {
     }
     if (value.indexOf("/wut") === 0) {
         if(!recentEmote){
-            setTimeout(function(){API.sendChat("/me  à² _à²  ")}, 50);
+            setTimeout(function(){API.sendChat("/me  à² _à²  ")}, 50);
             recentEmote = true;
             setTimeout(function(){ recentEmote = false; },60000);
             return true;
@@ -2136,22 +1897,6 @@ $('body').prepend('<style type="text/css" id="plugbot-css">'
     + '#plugbot-userlist p:first-child { padding-top: 0px !important; }'
     + '#plugbot-queuespot { color: #58FAF4; text-align: left; font-size: 15px; margin-left: 8px }');
 
-	$('body').prepend('<style type="text/css" id="plugbot-css">#plugbot-ui { position: absolute; margin-left: 349px; }#plugbot-ui p { background-color: #0b0b0b; height: 32px; padding-top: 8px; padding-left: 8px; padding-right: 6px;  font-variant: small-caps; cursor:pointer; width: 84px; font-size: 15px; margin: 0; }#plugbot-ui h2 { background-color: #0b0b0b; height: 112px; width: 156px; margin: 0; color: #fff; font-size: 13px; font-variant: small-caps; padding: 8px 0 0 12px; border-top: 1px dotted #292929; }#plugbot-userlist { border: 6px solid rgba(10, 10, 10, 0.8); border-left: 0 !important; background-color: #000000; padding: 8px 0px 20px 0px;width: 12%; }#plugbot-userlist p { margin: 0; padding-top: 4px; text-indent: 24px; font-size: 10px; }#plugbot-userlist p:first-child { padding-top: 0px !important; }#plugbot-queuespot { color: #42A5DC; text-align: left; font-size: 15px; margin-left: 8px }');
-	$('body').prepend('<style type="text/css" id="plugbot-css0">#plugbot-ui0 { position: absolute; margin-left: 95px; margin-top: -7px; cursor:pointer; font-family:Helvetica,Arial,sans-serif; font-weight: bold; font-size: 10px; }');
-	$('body').prepend('<style type="text/css" id="plugbot-css1">#plugbot-ui1 { position: absolute; margin-left: 885px; cursor:pointer; font-size: 12px; }');
-	$('body').prepend('<style type="text/css" id="plugbot-css2">#plugbot-ui2 { position: absolute; margin-left: 978px; cursor:pointer; }');
-	$('body').prepend('<style type="text/css" id="plugbot-css3">#plugbot-ui3 { position: absolute; margin-left: 995px; cursor:pointer; }');
-	$('body').prepend('<style type="text/css" id="plugbot-css4">#plugbot-ui4 { position: absolute; margin-left: 1012px; cursor:pointer; }');
-	$('body').prepend('<style type="text/css" id="plugbot-css5">#plugbot-ui5 { position: absolute; margin-left: 1029px; cursor:pointer; }');
-	$('body').prepend('<style type="text/css" id="plugbot-css6">#plugbot-ui6 { position: absolute; margin-left: 1046px; cursor:pointer; }');
-	$('body').prepend('<style type="text/css" id="plugbot-css7">#plugbot-ui7 { position: absolute; margin-left: 1063px; cursor:pointer; }');
-	$('body').prepend('<style type="text/css" id="plugbot-css8">#plugbot-ui8 { position: absolute; margin-left: 1080px; cursor:pointer; }');
-	$('body').prepend('<style type="text/css" id="plugbot-css9">#plugbot-ui9 { position: absolute; margin-left: 1097px; cursor:pointer; }');
-	$('body').prepend('<style type="text/css" id="plugbot-css10">#plugbot-ui10 { position: absolute; margin-left: 1114px; cursor:pointer; }');
-	$('body').prepend('<style type="text/css" id="plugbot-css11">#plugbot-ui11 { position: absolute; margin-left: 1131px; cursor:pointer; }');
-	$('body').prepend('<style type="text/css" id="plugbot-css12">#plugbot-ui12 { position: absolute; margin-left: 1148px; cursor:pointer; }');
-	$('body').prepend('<style type="text/css" id="plugbot-css13">#plugbot-ui13 { position: absolute; margin-left: 1165px; cursor:pointer; }');
-	$('body').prepend('<style type="text/css" id="plugbot-css14">#plugbot-ui14 { position: absolute; margin-left: 1182px; cursor:pointer; }');
 
 $("#button-vote-positive").click();
 
