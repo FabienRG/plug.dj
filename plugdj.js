@@ -924,6 +924,8 @@ $('#plugbot-btn-halloween01').live('click', function()
 		$('#plugbot-btn-change').live('click', function()
         {
 
+var autochange;
+		
 var avatarStrobe = {
 	on: true
 	, speed: 500
