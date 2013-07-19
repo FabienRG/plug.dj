@@ -139,10 +139,6 @@ function initAPIListeners()
 			API.moderateDeleteChat(msg.chatID);
 			console.log(msg);
 		}
-		if(/plug.dj/i.test(msg.message)) {
-			API.moderateDeleteChat(msg.chatID);
-			console.log(msg);
-		}
 	  }
     }
     API.addEventListener(API.CHAT, disable);
@@ -691,27 +687,6 @@ function initUIListeners()
 	$("#plugbot-btn-youtube").on("click", function() {
         Models.chat.sendChat("/em - Abonnez-vous à notre chaîne YouTube : http://youtube.com/GlitchsHacksFR");
     });
-	$("#plugbot-btn-changename").on("click", function() {
-        Models.chat.sendChat("/em - You can change your Name + Avatar by clicking on your name to show the options at the bottom right of lobby!");
-    });
-	$("#plugbot-btn-winbooth").on("click", function() {
-        Models.chat.sendChat("/em - When you are in the DJ booth - Remember to WOOT or MEH each song that is played until you are DJing or you will be removed.");
-    });
-	$("#plugbot-btn-addplaylist").on("click", function() {
-        Models.chat.sendChat("/em - Would you like to add this to your playlist? Click \"Add this\" at the TOP LEFT");
-    });
-	$("#plugbot-btn-wootad").on("click", function() {
-        Models.chat.sendChat("/em - WOOT! to make your avatar dance and earn points to unlock new avatars!");
-    });
-	$("#plugbot-btn-youdj").on("click", function() {
-        Models.chat.sendChat("/em - Would you like to be the DJ? If so add songs to your playlist by clicking \"My Playlist\" at top left. Add songs then click DJ button bottom right of the realityg Lobby.");
-    });
-	$("#plugbot-btn-featureddj").on("click", function() {
-        Models.chat.sendChat("/em - Featured DJs are Featured on realityg's YouTube! - If it is your birthday you get featured for a day!");
-    });
-	$("#plugbot-btn-themes").on("click", function() {
-        Models.chat.sendChat("/em - Theme: Any videos can be played in our room. As long as your song doesn't reach the Meh threshold then it won't be skipped.");
-    });
 	$("#plugbot-btn-5mehs").on("click", function() {
         Models.chat.sendChat("/em - 5 Mehs = Skip current track!");
     });
@@ -829,7 +804,7 @@ function initUIListeners()
         alert("O Commands (Origin Commands)\n\nThese commands are only available when OriginNRG@realityg is online as these are commands that interact with his script.\n\nCodes subject to change.");
     });
 	$("#plugbot-btn-aboutplug").on("click", function() {
-        alert("realityg Plug BETA 0.5.5 (June 2013)\nFor realityg Staff only!\n\nOriginal base code by ,DerpTheBass'\n\nEdited by OriginNRG@realityg\n\nThanks to all realityg Staff!");
+        alert("realityg Plug BETA 0.5.5 (Juillet 2013)\n@author : FabienRG\n@helper: OriginNRG\n@website : http://www.realitygaming.fr/");
     });
 	
 
