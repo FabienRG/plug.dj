@@ -2136,6 +2136,22 @@ $('body').prepend('<style type="text/css" id="plugbot-css">'
     + '#plugbot-userlist p:first-child { padding-top: 0px !important; }'
     + '#plugbot-queuespot { color: #58FAF4; text-align: left; font-size: 15px; margin-left: 8px }');
 
+	$('body').prepend('<style type="text/css" id="plugbot-css">#plugbot-ui { position: absolute; margin-left: 349px; }#plugbot-ui p { background-color: #0b0b0b; height: 32px; padding-top: 8px; padding-left: 8px; padding-right: 6px;  font-variant: small-caps; cursor:pointer; width: 84px; font-size: 15px; margin: 0; }#plugbot-ui h2 { background-color: #0b0b0b; height: 112px; width: 156px; margin: 0; color: #fff; font-size: 13px; font-variant: small-caps; padding: 8px 0 0 12px; border-top: 1px dotted #292929; }#plugbot-userlist { border: 6px solid rgba(10, 10, 10, 0.8); border-left: 0 !important; background-color: #000000; padding: 8px 0px 20px 0px;width: 12%; }#plugbot-userlist p { margin: 0; padding-top: 4px; text-indent: 24px; font-size: 10px; }#plugbot-userlist p:first-child { padding-top: 0px !important; }#plugbot-queuespot { color: #42A5DC; text-align: left; font-size: 15px; margin-left: 8px }');
+	$('body').prepend('<style type="text/css" id="plugbot-css0">#plugbot-ui0 { position: absolute; margin-left: 95px; margin-top: -7px; cursor:pointer; font-family:Helvetica,Arial,sans-serif; font-weight: bold; font-size: 10px; }');
+	$('body').prepend('<style type="text/css" id="plugbot-css1">#plugbot-ui1 { position: absolute; margin-left: 885px; cursor:pointer; font-size: 12px; }');
+	$('body').prepend('<style type="text/css" id="plugbot-css2">#plugbot-ui2 { position: absolute; margin-left: 978px; cursor:pointer; }');
+	$('body').prepend('<style type="text/css" id="plugbot-css3">#plugbot-ui3 { position: absolute; margin-left: 995px; cursor:pointer; }');
+	$('body').prepend('<style type="text/css" id="plugbot-css4">#plugbot-ui4 { position: absolute; margin-left: 1012px; cursor:pointer; }');
+	$('body').prepend('<style type="text/css" id="plugbot-css5">#plugbot-ui5 { position: absolute; margin-left: 1029px; cursor:pointer; }');
+	$('body').prepend('<style type="text/css" id="plugbot-css6">#plugbot-ui6 { position: absolute; margin-left: 1046px; cursor:pointer; }');
+	$('body').prepend('<style type="text/css" id="plugbot-css7">#plugbot-ui7 { position: absolute; margin-left: 1063px; cursor:pointer; }');
+	$('body').prepend('<style type="text/css" id="plugbot-css8">#plugbot-ui8 { position: absolute; margin-left: 1080px; cursor:pointer; }');
+	$('body').prepend('<style type="text/css" id="plugbot-css9">#plugbot-ui9 { position: absolute; margin-left: 1097px; cursor:pointer; }');
+	$('body').prepend('<style type="text/css" id="plugbot-css10">#plugbot-ui10 { position: absolute; margin-left: 1114px; cursor:pointer; }');
+	$('body').prepend('<style type="text/css" id="plugbot-css11">#plugbot-ui11 { position: absolute; margin-left: 1131px; cursor:pointer; }');
+	$('body').prepend('<style type="text/css" id="plugbot-css12">#plugbot-ui12 { position: absolute; margin-left: 1148px; cursor:pointer; }');
+	$('body').prepend('<style type="text/css" id="plugbot-css13">#plugbot-ui13 { position: absolute; margin-left: 1165px; cursor:pointer; }');
+	$('body').prepend('<style type="text/css" id="plugbot-css14">#plugbot-ui14 { position: absolute; margin-left: 1182px; cursor:pointer; }');
 
 $("#button-vote-positive").click();
 
