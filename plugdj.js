@@ -1,49 +1,39 @@
-// ==UserScript==
-// @name           SoundGlee Staff Plugin
-// @namespace      OriginNRG@SoundGlee
-// @include        http://www.plug.dj/soundglee/
-// @include        http://plug.dj/soundglee/
-// @include        www.plug.dj/soundglee/
-// @include        plug.dj/soundglee/
-// @include        socketio.plug.dj/soundglee/
-// @include        http://socketio.plug.dj/soundglee/
-// @version        0.5.5
-// @updateURL      https://originnrg.googlecode.com/files/SG_Staff_Plug.js
-// @downloadURL    https://originnrg.googlecode.com/files/SG_Staff_Plug.js
-// ==/UserScript==
-
-// Coding by OriginNRG@SoundGlee and Asdboy@SoundGlee
+/*
+* @author : FabienRG
+* @helper: OriginNRG
+* @website : http://www.realitygaming.fr/
+*/
 
 setTimeout(function() {
 
-var version = "Running SoundGlee Staff Script Version 0.5.5 BETA<br>Created for SoundGlee Staff Only.<BR>Do not share this out!";
-var version2 = "ALL EXTRAS ARE NOW DISABLED. WE HAVE HAD TO HAVE A MASSIVE OVERHAUL OF RULES AND REGULATIONS. PLEASE READ THE NEW RULES IN THE INFO PANEL. ALL LINKS ETC FOR THIS SCRIPT WILL BE RE-ADDED AT A LATER DATE!";
+var version = "Script en provenance de RealityGaming.fr activé !";
+var version2 = "Merci d'éviter d'abuser des fonctions de celui-ci.";
 var version3 = ".";
-var changeLog = "Created by OriginNRG@SoundGlee based on BassPlug";
+var changeLog = "©FabienRG";
 appendToChat(version, null, "#00E1FF");
 appendToChat(version2, null, "#09FF00");
 appendToChat(version3, null, "#FFFF00");
 
-if(localStorage.getItem("soundglee") !== "yes"){
-    soundgleeOptions = {};
-    soundgleeOptions.autoWoot = true;
-    soundgleeOptions.autoJoin = true;
-    soundgleeOptions.autoRespond = false;
-    soundgleeOptions.userlist = true;
-    soundgleeOptions.hideVideo = false;
-    soundgleeOptions.alerts = true;
-    soundgleeOptions.stream = true;
-    soundgleeOptions.menu = true;
-    soundgleeOptions.debug = false;
-    soundgleeOptions.strobe = false;
-    soundgleeOptions.lights = false;
-    soundgleeOptions.awayMessage = "";
+if(localStorage.getItem("realityg") !== "yes"){
+    realitygOptions = {};
+    realitygOptions.autoWoot = true;
+    realitygOptions.autoJoin = true;
+    realitygOptions.autoRespond = false;
+    realitygOptions.userlist = true;
+    realitygOptions.hideVideo = false;
+    realitygOptions.alerts = true;
+    realitygOptions.stream = true;
+    realitygOptions.menu = true;
+    realitygOptions.debug = false;
+    realitygOptions.strobe = false;
+    realitygOptions.lights = false;
+    realitygOptions.awayMessage = "";
 }
 
-soundGlee = {};
-soundGlee.mehcount = 0;
-soundGlee.recent = false;
-soundGlee.recentEmotes = false;
+realityg = {};
+realityg.mehcount = 0;
+realityg.recent = false;
+realityg.recentEmotes = false;
 
 var recent = false,
     awaymsg = "",
@@ -72,36 +62,36 @@ function initAPIListeners()
     API.addEventListener(API.DJ_ADVANCE, djAdvanced);
     API.addEventListener(API.VOTE_UPDATE, function(obj) {
         if(debug){
-            console.log("[SoundGlee] Updating user vote...");
+            console.log("[realityg] MAJ des votes utilisateurs...");
         }
         if (API.getUser(obj.user.id).vote == -1)
             API.getUser(obj.user.id).mehcount++;
         if(debug){
-            console.log("[SoundGlee] Adding to users meh count...");
+            console.log("[realityg] Ajout du compteur de 'meh' aux utilisateurs...");
         }
         if (userList)
             populateUserlist();
         if(debug){
-            console.log("[SoundGlee] Populating Userlist...");
+            console.log("[realityg] Peuplement de l'userlist...");
         }
     });
     API.addEventListener(API.CURATE_UPDATE, function(obj) {
         if (alerts) {
             var media = API.getMedia();
-            log(obj.user.username + " added " + media.author + " - " + media.title);
+            log(obj.user.username + " à ajouté " + media.author + " - " + media.title);
             API.getUser(obj.user.id).curated=true;
             if (userList)
                 populateUserlist();
             if(debug){
-                console.log("[SoundGlee] Populating Userlist...");
+                console.log("[realityg] Peuplement de l'userlist...");
             }
         }
     });
     API.addEventListener(API.USER_JOIN, function(user) {
         if (alerts){
-            appendToChat(user.username + " joined the room", null, "#E90E82");
+            appendToChat(user.username + " à rejoint le salon", null, "#E90E82");
             if(debug){
-                console.log("[SoundGlee] Displaying join alert");
+                console.log("[realityg] Affichage d'alerte activé");
             }
         }
         if(API.getUser(user.id).mehcount===undefined){
@@ -110,17 +100,17 @@ function initAPIListeners()
         if (userList)
             populateUserlist();
         if(debug){
-            console.log("[SoundGlee] Populating Userlist...");
+            console.log("[realityg] Peuplement de l'userlist...");
         }
     });
     API.addEventListener(API.USER_LEAVE, function(user) {
         if (alerts){
-            appendToChat(user.username + " left the room", null, "#E90E82");
+            appendToChat(user.username + " à quitté le salon", null, "#E90E82");
         }
         if (userList)
             populateUserlist();
         if(debug){
-            console.log("[SoundGlee] Populating Userlist...");
+            console.log("[realityg] Peuplement de l'userlist...");
         }
     });
     API.addEventListener(API.DJ_ADVANCE, function(){
@@ -133,23 +123,23 @@ function initAPIListeners()
             lights = false;
         }
     });
-  if (typeof API != "undefined") {
+	if (typeof API != "undefined") {
 	
-	// see http://blog.plug.dj/api-documentation/
 	console.log(API.getSelf());
-	console.log("Chat Moderator Ready");
+	console.log("Chat modérateur prêt");
 	
-	API.addEventListener(API.CHAT, chatMod); // listen for new chat msg
+	API.addEventListener(API.CHAT, chatMod);
 	
 	function chatMod(msg) {
-		// test if message contains adf.ly link
 		if(/adf.ly/i.test(msg.message)) {
-			// delete the chat that contained one of the criteria
 			API.moderateDeleteChat(msg.chatID);
 			console.log(msg);
 		}
 		if(/shukbob.net/i.test(msg.message)) {
-			// delete the chat that contained one of the criteria
+			API.moderateDeleteChat(msg.chatID);
+			console.log(msg);
+		}
+		if(/plug.dj/i.test(msg.message)) {
 			API.moderateDeleteChat(msg.chatID);
 			console.log(msg);
 		}
@@ -169,7 +159,7 @@ function displayUI(data) {
         $('#plugbot-ui').append(
 				'<div id="plugbot-links" style="min-width: 120px; max-height: 98.6%; overflow-x: hidden; overflow-y: auto; position: fixed; z-index: 99; border-style: solid; border-width: 1px; border-color: #000; background-color: rgba(10, 10, 10, 0.5); border-right: 0 !important; padding: 0px 0px 12px 0px;">' +
 				
-            	'<p id="plugbot-btn-menu" style="color:#FF0066; "><b>SoundGlee</b></p>' +
+            	'<p id="plugbot-btn-menu" style="color:#FF0066; "><b>realityg</b></p>' +
                 '<div style="width: 100%; visibility:visible">' +
                 '<p id="plugbot-btn-woot" style="color:#78E700">AutoWoot</p>' +
 				'<p id="plugbot-btn-queue" style="color:#78E700">AutoJoin</p>' +
@@ -183,7 +173,7 @@ function displayUI(data) {
 				'<div id="plugbot-links2">' +
 				'<p id="plugbot-btn-menu2" style="color:#FF0066; margin-top:20px;"><b>Sponsor</b></p>' +
 				'<div style="width: 100%; visibility:visible">' +
-				'<p id="plugbot-btn-soundgleewebsite" style="color:#FFA400;">Website</p>' +
+				'<p id="plugbot-btn-realitygwebsite" style="color:#FFA400;">Website</p>' +
 				'<p id="plugbot-btn-facebook" style="color:#FFA400;">Facebook</p>' +
 				'<p id="plugbot-btn-twitter" style="color:#FFA400">Twitter</p>' +
 				'<p id="plugbot-btn-youtube" style="color:#FFA400">YouTube</p>' +
@@ -231,7 +221,7 @@ function displayUI(data) {
     }else{
         $('#user-container').prepend('<div id="plugbot-ui"></div>');
         $('#plugbot-ui').append(
-            '<p id="plugbot-btn-menu" style="color:#E90E82 ">SoundGlee</p>' +
+            '<p id="plugbot-btn-menu" style="color:#E90E82 ">realityg</p>' +
                 '<div style="width: 100%; visibility:visible">' +
                 '<p id="plugbot-btn-woot" style="color:#78E700">Autowoot</p>' +
                 '<p id="plugbot-btn-queue" style="color:#ED1C24">Autojoin</p>' +
@@ -285,7 +275,7 @@ function initUIListeners()
         function(){
             $(this).css("background-color", "rgba(10, 10, 10, 0.5)");
         });
-	$("#plugbot-btn-soundgleewebsite") .hover(function(){
+	$("#plugbot-btn-realitygwebsite") .hover(function(){
             $(this).css("background-color", "rgba(39, 39, 39, 0.5)");
         },
         function(){
@@ -709,7 +699,7 @@ function initUIListeners()
         }
     });
 	$("#plugbot-btn-welcome").on("click", function() {
-        Models.chat.sendChat("/em - Welcome, Rules of the Lobby can be found at Top Left of SoundGlee Radio by clicking \"Info\".");
+        Models.chat.sendChat("/em - Welcome, Rules of the Lobby can be found at Top Left of realityg Radio by clicking \"Info\".");
     });
 	$("#plugbot-btn-clearchat").on("click", function() {
         Models.chat.sendChat("/clear");
@@ -721,19 +711,19 @@ function initUIListeners()
         Models.chat.sendChat("/cap 200");
     });
 	$("#plugbot-btn-facebook").on("click", function() {
-        Models.chat.sendChat("/em - Like us on Facebook : http://bit.ly/SoundGleeFB");
+        Models.chat.sendChat("/em - Like us on Facebook : http://bit.ly/realitygFB");
     });
 	$("#plugbot-btn-twitter").on("click", function() {
         Models.chat.sendChat("/em - Follow us on Twitter : http://bit.ly/10SMxNF");
     });
 	$("#plugbot-btn-youtube").on("click", function() {
-        Models.chat.sendChat("/em - Subscribe to us on YouTube : http://bit.ly/SoundGleeYT");
+        Models.chat.sendChat("/em - Subscribe to us on YouTube : http://bit.ly/realitygYT");
     });
 	$("#plugbot-btn-soundcloud").on("click", function() {
         Models.chat.sendChat("/em - Follow us on SoundCloud: http://bit.ly/ZaNxWq");
     });
 	$("#plugbot-btn-spreadshirt").on("click", function() {
-        Models.chat.sendChat("/em - Buy SoundGlee Clothing here - http://soundglee.spreadshirt.com");
+        Models.chat.sendChat("/em - Buy realityg Clothing here - http://realityg.spreadshirt.com");
     });
 	$("#plugbot-btn-chromead").on("click", function() {
         Models.chat.sendChat("/em - Got Chrome? Want to prevent from being kicked? Go get an AutoWoot! We recommend you use this Chrome Plugin: http://bit.ly/ZBdAIj");
@@ -754,10 +744,10 @@ function initUIListeners()
         Models.chat.sendChat("/em - WOOT! to make your avatar dance and earn points to unlock new avatars!");
     });
 	$("#plugbot-btn-youdj").on("click", function() {
-        Models.chat.sendChat("/em - Would you like to be the DJ? If so add songs to your playlist by clicking \"My Playlist\" at top left. Add songs then click DJ button bottom right of the SoundGlee Lobby.");
+        Models.chat.sendChat("/em - Would you like to be the DJ? If so add songs to your playlist by clicking \"My Playlist\" at top left. Add songs then click DJ button bottom right of the realityg Lobby.");
     });
 	$("#plugbot-btn-featureddj").on("click", function() {
-        Models.chat.sendChat("/em - Featured DJs are Featured on SoundGlee's YouTube! - If it is your birthday you get featured for a day!");
+        Models.chat.sendChat("/em - Featured DJs are Featured on realityg's YouTube! - If it is your birthday you get featured for a day!");
     });
 	$("#plugbot-btn-themes").on("click", function() {
         Models.chat.sendChat("/em - Theme: Any videos can be played in our room. As long as your song doesn't reach the Meh threshold then it won't be skipped.");
@@ -781,11 +771,11 @@ function initUIListeners()
         alert("Meh Thresholds (This can vary depending how many listeners are AFK but this is a general rule)\n\n0-20 Listeners - 5 Mehs\n20-50 Listeners - 7 Mehs\n50-100 Listeners - 10/15 Mehs\n100+ Listeners - 15/20 Mehs");
     });
 	$("#plugbot-btn-submissions").on("click", function() {
-        Models.chat.sendChat("/em - Use our DropBox function to submit songs instantly via SoundCloud - http://bit.ly/ZdKrHS or email us at submissions@soundglee.com");
+        Models.chat.sendChat("/em - Use our DropBox function to submit songs instantly via SoundCloud - http://bit.ly/ZdKrHS or email us at submissions@realityg.com");
     });
 	$("#plugbot-btn-rulesall").on("click", function() {
         setTimeout(function(){
-                Models.chat.sendChat("/em - SoundGlee Lobby Rules!");
+                Models.chat.sendChat("/em - realityg Lobby Rules!");
             }, 100);
 		setTimeout(function(){
                 Models.chat.sendChat("/em - 1. Woot if you are in the DJ Booth!");
@@ -800,14 +790,14 @@ function initUIListeners()
                 Models.chat.sendChat("/em - 4. Max 10 mins Song");
             }, 4100);
 		setTimeout(function(){
-                Models.chat.sendChat("/em - 5. Dont use /me or /em (SoundGlee Plug.dj Staff Only)");
+                Models.chat.sendChat("/em - 5. Dont use /me or /em (realityg Plug.dj Staff Only)");
             }, 5100);
 		setTimeout(function(){
                 Models.chat.sendChat("/em - 6. Do not play songs that are on the recent history.");
             }, 6100);
     });
-	$("#plugbot-btn-soundgleewebsite").on("click", function() {
-        Models.chat.sendChat("/em - Visit our Website! - http://www.soundglee.com");
+	$("#plugbot-btn-realitygwebsite").on("click", function() {
+        Models.chat.sendChat("/em - Visit our Website! - http://www.realityg.com");
     });
 	$("#plugbot-btn-ruleswoot").on("click", function() {
         Models.chat.sendChat("/em - RULE: Woot if you are in the DJ booth!");
@@ -822,7 +812,7 @@ function initUIListeners()
         Models.chat.sendChat("/em - RULE: Max 10 mins Song.");
     });
 	$("#plugbot-btn-rulesemme").on("click", function() {
-        Models.chat.sendChat("/em - RULE: Dont use /me - /em (SoundGlee Plug.dj Staff Only)");
+        Models.chat.sendChat("/em - RULE: Dont use /me - /em (realityg Plug.dj Staff Only)");
     });
 	$("#plugbot-btn-ruleshistory").on("click", function() {
         Models.chat.sendChat("/em - RULE: Do not play songs that are on the recent history.");
@@ -879,10 +869,10 @@ function initUIListeners()
         }
     });
 	$("#plugbot-btn-ocommands").on("click", function() {
-        alert("O Commands (Origin Commands)\n\nThese commands are only available when OriginNRG@SoundGlee is online as these are commands that interact with his script.\n\nCodes subject to change.");
+        alert("O Commands (Origin Commands)\n\nThese commands are only available when OriginNRG@realityg is online as these are commands that interact with his script.\n\nCodes subject to change.");
     });
 	$("#plugbot-btn-aboutplug").on("click", function() {
-        alert("SoundGlee Plug BETA 0.5.5 (June 2013)\nFor SoundGlee Staff only!\n\nOriginal base code by ,DerpTheBass'\n\nEdited by OriginNRG@SoundGlee\n\nThanks to all SoundGlee Staff!");
+        alert("realityg Plug BETA 0.5.5 (June 2013)\nFor realityg Staff only!\n\nOriginal base code by ,DerpTheBass'\n\nEdited by OriginNRG@realityg\n\nThanks to all realityg Staff!");
     });
 	
 
@@ -933,9 +923,9 @@ function addGlobalStyle(css){
 
 var words = {
 // Syntax: 'Search word' : 'Replace word',
-"SoundGlee Music Network" : "SoundGlee Staff Script 0.5.5",
+"realityg Music Network" : "realityg Staff Script 0.5.5",
 "When you DJ you will play..." : "Up Next...",
-"©2012 Plug DJ, LLC." : "©2013 SoundGlee",
+"Â©2012 Plug DJ, LLC." : "Â©2013 realityg",
 "Points" : "Points",
 "Now Playing" : "Now Playing",
 "Time Remaining" : "Time Remaining",
@@ -1230,7 +1220,7 @@ var customChatCommand = function(value) {
 //Response commands
     if (/^.wut (.*)$/.exec(value)) {
         if(!recentEmote){
-            setTimeout(function() {API.sendChat(RegExp.$1+" ಠ_ಠ")}, 50);
+            setTimeout(function() {API.sendChat(RegExp.$1+" à² _à² ")}, 50);
             recentEmote = true;
             setTimeout(function(){ recentEmote = false; },60000);
             return true;
@@ -1252,7 +1242,7 @@ var customChatCommand = function(value) {
     }
     if (/^.throw (.*)$/.exec(value)) {
         if(!recentEmote){
-            setTimeout(function() {API.sendChat(RegExp.$1+" (ノಠ益ಠ)ノ彡 ")}, 50);
+            setTimeout(function() {API.sendChat(RegExp.$1+" (ãƒŽà² ç›Šà² )ãƒŽå½¡ ")}, 50);
             recentEmote = true;
             setTimeout(function(){ recentEmote = false; },60000);
             return true;
@@ -1263,7 +1253,7 @@ var customChatCommand = function(value) {
     }
     if (/^.eyeroll (.*)$/.exec(value)) {
         if(!recentEmote){
-            setTimeout(function(){API.sendChat(RegExp.$1+" ¬_¬")}, 50);
+            setTimeout(function(){API.sendChat(RegExp.$1+" Â¬_Â¬")}, 50);
             recentEmote = true;
             setTimeout(function(){ recentEmote = false; },60000);
             return true;
@@ -1274,7 +1264,7 @@ var customChatCommand = function(value) {
     }
     if (/^.cry (.*)$/.exec(value)) {
         if(!recentEmote){
-            setTimeout(function(){API.sendChat(RegExp.$1+" ಥ_ಥ")}, 50);
+            setTimeout(function(){API.sendChat(RegExp.$1+" à²¥_à²¥")}, 50);
             recentEmote = true;
             setTimeout(function(){ recentEmote = false; },60000);
             return true;
@@ -1285,7 +1275,7 @@ var customChatCommand = function(value) {
     }
     if (/^.420 (.*)$/.exec(value)) {
         if(!recentEmote){
-            setTimeout(function(){API.sendChat(RegExp.$1+" ≖‿≖")}, 50);
+            setTimeout(function(){API.sendChat(RegExp.$1+" â‰–â€¿â‰–")}, 50);
             recentEmote = true;
             setTimeout(function(){ recentEmote = false; },60000);
             return true;
@@ -1296,7 +1286,7 @@ var customChatCommand = function(value) {
     }
     if (/^.yuno (.*)$/.exec(value)) {
         if(!recentEmote){
-            setTimeout(function(){API.sendChat(RegExp.$1+" ლ(ಥ益ಥლ)")}, 50);
+            setTimeout(function(){API.sendChat(RegExp.$1+" áƒš(à²¥ç›Šà²¥áƒš)")}, 50);
             recentEmote = true;
             setTimeout(function(){ recentEmote = false; },60000);
             return true;
@@ -1320,7 +1310,7 @@ var customChatCommand = function(value) {
     /******************************************************************************************/
     if (value.indexOf("/throw") === 0) {
         if(!recentEmote){
-            setTimeout(function(){API.sendChat("/me (ノಠ益ಠ)ノ彡")}, 50);
+            setTimeout(function(){API.sendChat("/me (ãƒŽà² ç›Šà² )ãƒŽå½¡")}, 50);
             recentEmote = true;
             setTimeout(function(){recentEmote = false;},60000);
             return true;
@@ -1331,7 +1321,7 @@ var customChatCommand = function(value) {
     }
     if (value.indexOf("/wut") === 0) {
         if(!recentEmote){
-            setTimeout(function(){API.sendChat("/me  ಠ_ಠ ")}, 50);
+            setTimeout(function(){API.sendChat("/me  à² _à²  ")}, 50);
             recentEmote = true;
             setTimeout(function(){ recentEmote = false; },60000);
             return true;
@@ -1342,7 +1332,7 @@ var customChatCommand = function(value) {
     }
     if (value.indexOf("/420") === 0) {
         if(!recentEmote){
-            setTimeout(function(){API.sendChat("/me ≖‿≖")}, 50);
+            setTimeout(function(){API.sendChat("/me â‰–â€¿â‰–")}, 50);
             recentEmote = true;
             setTimeout(function(){ recentEmote = false; },60000);
             return true;
@@ -1353,7 +1343,7 @@ var customChatCommand = function(value) {
     }
     if (value.indexOf("/eyeroll") === 0) {
         if(!recentEmote){
-            setTimeout(function(){API.sendChat("/me ¬_¬")}, 50);
+            setTimeout(function(){API.sendChat("/me Â¬_Â¬")}, 50);
             recentEmote = true;
             setTimeout(function(){ recentEmote = false; },60000);
             return true;
@@ -1375,7 +1365,7 @@ var customChatCommand = function(value) {
     }
     if (value.indexOf("/yuno") === 0) {
         if(!recentEmote){
-            setTimeout(function(){API.sendChat("/me ლ(ಥ益ಥლ)")}, 50);
+            setTimeout(function(){API.sendChat("/me áƒš(à²¥ç›Šà²¥áƒš)")}, 50);
             recentEmote = true;
             setTimeout(function(){ recentEmote = false; },60000);
             return true;
@@ -1386,7 +1376,7 @@ var customChatCommand = function(value) {
     }
     if (value.indexOf("/cry") === 0) {
         if(!recentEmote){
-            setTimeout(function(){API.sendChat("/me ಥ_ಥ")}, 50);
+            setTimeout(function(){API.sendChat("/me à²¥_à²¥")}, 50);
             recentEmote = true;
             setTimeout(function(){ recentEmote = false; },60000);
             return true;
