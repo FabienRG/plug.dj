@@ -161,6 +161,8 @@ function displayUI(data) {
 				
             	'<p id="plugbot-btn-menu" style="color:#FF0066; "><b>realityg</b></p>' +
                 '<div style="width: 100%; visibility:visible">' +
+				'<p id="strobe-menu" style="color:#78E700">strobe-menu</p>' +
+				'<p id="lights-menu" style="color:#78E700">lights-menu</p>' +
                 '<p id="plugbot-btn-woot" style="color:#78E700">AutoWoot</p>' +
 				'<p id="plugbot-btn-queue" style="color:#78E700">AutoJoin</p>' +
                 '<p id="plugbot-btn-hidevideo" style="color:#78E700">Hide Video</p>' +
