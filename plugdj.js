@@ -1,6 +1,6 @@
 /*
 * @author : FabienRG
-* @helper: OriginNRG
+* @helper : OriginNRG
 * @website : http://www.realitygaming.fr/
 */
 
@@ -666,6 +666,9 @@ function initUIListeners()
             API.sendChat("/alertson");
         }
     });
+	$("#plugbot-btn-skiphistory").on("click", function() {
+        Models.chat.sendChat("/history");
+    });
 	$("#plugbot-btn-welcome").on("click", function() {
         Models.chat.sendChat("/em - Bienvenue sur le salon plug.dj officiel du site RealityGaming.fr !");
     });
@@ -687,67 +690,31 @@ function initUIListeners()
 	$("#plugbot-btn-youtube").on("click", function() {
         Models.chat.sendChat("/em - Abonnez-vous à notre chaîne YouTube : http://youtube.com/GlitchsHacksFR");
     });
-	$("#plugbot-btn-5mehs").on("click", function() {
-        Models.chat.sendChat("/em - 5 Mehs = Skip current track!");
-    });
-	$("#plugbot-btn-7mehs").on("click", function() {
-        Models.chat.sendChat("/em - 7 Mehs = Skip current track!");
-    });
-	$("#plugbot-btn-10mehs").on("click", function() {
-        Models.chat.sendChat("/em - 10 Mehs = Skip current track!");
-    });
-	$("#plugbot-btn-15mehs").on("click", function() {
-        Models.chat.sendChat("/em - 15 Mehs = Skip current track!");
-    });
 	$("#plugbot-btn-justwoot").on("click", function() {
         Models.chat.sendChat("/em - WOOT!");
     });
-	$("#plugbot-btn-whatmehs").on("click", function() {
-        alert("Meh Thresholds (This can vary depending how many listeners are AFK but this is a general rule)\n\n0-20 Listeners - 5 Mehs\n20-50 Listeners - 7 Mehs\n50-100 Listeners - 10/15 Mehs\n100+ Listeners - 15/20 Mehs");
-    });
 	$("#plugbot-btn-rulesall").on("click", function() {
         setTimeout(function(){
-                Models.chat.sendChat("/em - realityg Lobby Rules!");
+                Models.chat.sendChat("/em - Règles realityg !");
             }, 100);
 		setTimeout(function(){
-                Models.chat.sendChat("/em - 1. Woot if you are in the DJ Booth!");
+                Models.chat.sendChat("/em - 1. Les insultes, propos racistes et le flood en continue ne sont pas tolérés. ");
             }, 1100);
 		setTimeout(function(){
-                Models.chat.sendChat("/em - 2. English language only in chat");
+                Models.chat.sendChat("/em - 2. Essayez de visiter souvent l'historique en haut à gauche. Cela vous évitera de passer la même musique sans arrêt.");
             }, 2100);
 		setTimeout(function(){
-                Models.chat.sendChat("/em - 3. No Spam/Advertising links in chat");
+                Models.chat.sendChat("/em - 3. Il y'en faut pour tout le monde ! C'est pour cela que nous limitons les musiques à 7 minutes 30 maximum.");
             }, 3100);
 		setTimeout(function(){
-                Models.chat.sendChat("/em - 4. Max 10 mins Song");
+                Models.chat.sendChat("/em - 4. Les trolls ne sont pas autorisés : musique de 10h, pornographie, etc...");
             }, 4100);
 		setTimeout(function(){
-                Models.chat.sendChat("/em - 5. Dont use /me or /em (realityg Plug.dj Staff Only)");
+                Models.chat.sendChat("/em - 5. L'utilisation abusive de script est proscrite.");
             }, 5100);
-		setTimeout(function(){
-                Models.chat.sendChat("/em - 6. Do not play songs that are on the recent history.");
-            }, 6100);
     });
 	$("#plugbot-btn-realitygwebsite").on("click", function() {
-        Models.chat.sendChat("/em - Visit our Website! - http://www.realityg.com");
-    });
-	$("#plugbot-btn-ruleswoot").on("click", function() {
-        Models.chat.sendChat("/em - RULE: Woot if you are in the DJ booth!");
-    });
-	$("#plugbot-btn-ruleseng").on("click", function() {
-        Models.chat.sendChat("/em - RULE: English language only in chat.");
-    });
-	$("#plugbot-btn-rulesnospam").on("click", function() {
-        Models.chat.sendChat("/em - RULE: No Spam/Advertising links in chat.");
-    });
-	$("#plugbot-btn-rules10mins").on("click", function() {
-        Models.chat.sendChat("/em - RULE: Max 10 mins Song.");
-    });
-	$("#plugbot-btn-rulesemme").on("click", function() {
-        Models.chat.sendChat("/em - RULE: Dont use /me - /em (realityg Plug.dj Staff Only)");
-    });
-	$("#plugbot-btn-ruleshistory").on("click", function() {
-        Models.chat.sendChat("/em - RULE: Do not play songs that are on the recent history.");
+        Models.chat.sendChat("/em - Visitez notre site web ! - http://realitygaming.fr/");
     });
 	$("#plugbot-btn-oeta").on("click", function() {
         Models.chat.sendChat("/eta");
@@ -763,7 +730,7 @@ function initUIListeners()
             new RoomPropsService(Slug,true,Models.room.data.waitListEnabled,Models.room.data.maxPlays,Models.room.data.maxDJs);
             return true;
         }else{
-            modChat("","Sorry, you have to be at least a manager to do that.");
+            modChat("","Vous n'avez pas le permission de faire cela.");
             return true;
         }
     });
@@ -772,7 +739,7 @@ function initUIListeners()
        	     new RoomPropsService(Slug,false,Models.room.data.waitListEnabled,Models.room.data.maxPlays,Models.room.data.maxDJs);
        	     return true;
       	  }else{
-      	      modChat("","Sorry, you have to be at least a manger to do that");
+      	      modChat("","Vous n'avez pas le permission de faire cela.");
       	      return true;
      	   }
     });
@@ -781,7 +748,7 @@ function initUIListeners()
             new ModerationForceSkipService();
             return true;
         }else{
-            modChat("","Sorry, you have to be at least a bouncer to do that.");
+            modChat("","Vous n'avez pas le permission de faire cela.");
             return true;
         }
     });
@@ -796,15 +763,12 @@ function initUIListeners()
             },300);
             return true;
         }else{
-            modChat("", "Sorry, you have to be at least a manager to do that.");
+            modChat("", "Vous n'avez pas le permission de faire cela.");
             return true;
         }
     });
-	$("#plugbot-btn-ocommands").on("click", function() {
-        alert("O Commands (Origin Commands)\n\nThese commands are only available when OriginNRG@realityg is online as these are commands that interact with his script.\n\nCodes subject to change.");
-    });
 	$("#plugbot-btn-aboutplug").on("click", function() {
-        alert("realityg Plug BETA 0.5.5 (Juillet 2013)\n@author : FabienRG\n@helper: OriginNRG\n@website : http://www.realitygaming.fr/");
+        alert("realityg Plug BETA 0.5.5 (Juillet 2013)\n/n@author : FabienRG\n@helper : OriginNRG\n@website : http://RealityGaming.fr/");
     });
 	
 
@@ -854,7 +818,6 @@ function addGlobalStyle(css){
 }
 
 var words = {
-// Syntax: 'Search word' : 'Replace word',
 "realityg Music Network" : "realityg Staff Script 0.5.5",
 "When you DJ you will play..." : "Up Next...",
 "Â©2012 Plug DJ, LLC." : "Â©2013 realityg",
@@ -945,23 +908,23 @@ function appendUser(user)
     }
     var imagePrefix;
     switch (permission) {
-        case 0:        // Normal user
+        case 0:        
             imagePrefix = 'normal'
             break;
-        case 1:        // Featured DJ
+        case 1:        
             imagePrefix = 'featured';
             break;
-        case 2:    	// Bouncer
+        case 2:    	
             imagePrefix = 'bouncer';
             break;
-        case 3:		// Manager
+        case 3:		
             imagePrefix = 'manager';
             break;
         case 4:
-        case 5: 	// Co-host
+        case 5: 	
             imagePrefix = 'host';
             break;
-        case 99:	// Admin
+        case 99:	
             imagePrefix = 'admin';
             break;
     }
@@ -979,7 +942,7 @@ function appendUser(user)
 }
 function colorByVote(vote) {
     if (!vote)	{
-        return '#DDDDDD'; // blame Boycey
+        return '#DDDDDD'; 
     }
     switch (vote) {
         case -1: 	return '#F43636';
@@ -989,7 +952,7 @@ function colorByVote(vote) {
 }
 function imagePrefixByVote(vote) {
     if (!vote) {
-        return '_undecided.png'; // blame boycey again
+        return '_undecided.png'; 
     }
     switch (vote) {
         case -1:	return '_meh.png';
@@ -1007,7 +970,7 @@ function drawUserlistItem(imagePath, color, username) {
             + 'color:' + color + ';'
             + ((API.getDJs()[0].username == username) ? 'font-size:12px;font-weight:bold;' : '')
             + '">'
-			+ '<a onclick="javascript:Models.chat.sendChat(\'@' + username + ' Woot or Meh to remain in the DJ Booth Please!\');">'
+			+ '<a onclick="javascript:Models.chat.sendChat(\'@' + username + ' Lâchez des évaluations svp !\');">'
 		    + '<img src="http://i.imgur.com/tb8qHjT.png"></a> '
 			+ ' <a style="color:' + color + ';" onclick="$(\'#chat-input-field\').val($(\'#chat-input-field\').val() + \'@' + username + ' \').focus();">' + username + '</a> '
 			+ ' </p>'
@@ -1088,7 +1051,6 @@ var updateChat = function(from, message){
         language: Models.user.data.language
     })
 };
-/*ChatCommands*/
 var customChatCommand = function(value) {
     if (Models.chat._chatCommand(value) === true)
         return true;
@@ -1149,7 +1111,6 @@ var customChatCommand = function(value) {
             , null, "#66FFFF");
         return true;
     }
-//Response commands
     if (/^.wut (.*)$/.exec(value)) {
         if(!recentEmote){
             setTimeout(function() {API.sendChat(RegExp.$1+" à² _à² ")}, 50);
@@ -1239,7 +1200,6 @@ var customChatCommand = function(value) {
         }
     }
 
-    /******************************************************************************************/
     if (value.indexOf("/throw") === 0) {
         if(!recentEmote){
             setTimeout(function(){API.sendChat("/me (ãƒŽà² ç›Šà² )ãƒŽå½¡")}, 50);
@@ -1317,7 +1277,6 @@ var customChatCommand = function(value) {
             return true;
         }
     }
-    //Moderation
     if (value.indexOf("/lockskip") === 0){
         if (Models.room.data.staff[API.getSelf().id] > 2){
             new RoomPropsService(Slug,true,Models.room.data.waitListEnabled,Models.room.data.maxPlays,Models.room.data.maxDJs);
