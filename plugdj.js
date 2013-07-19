@@ -10,6 +10,7 @@ var version = "Script en provenance de RealityGaming.fr activé !";
 var version2 = "Merci d'éviter d'abuser des fonctions de celui-ci.";
 var version3 = ".";
 var changeLog = "©FabienRG";
+var autochange;
 appendToChat(version, null, "#00E1FF");
 appendToChat(version2, null, "#09FF00");
 appendToChat(version3, null, "#FFFF00");
@@ -923,8 +924,6 @@ $('#plugbot-btn-halloween01').live('click', function()
 		
 		$('#plugbot-btn-change').live('click', function()
         {
-
-var autochange;
 		
 var avatarStrobe = {
 	on: true
