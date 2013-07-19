@@ -1352,7 +1352,6 @@ var customChatCommand = function(value) {
             return true;
         }
     }
-    //Misc
     if (/^\/fan @(.*)$/.exec(value)) {
         reg = RegExp.$1;
         target = reg.trim();
@@ -1395,7 +1394,7 @@ var customChatCommand = function(value) {
         return true;
     }
     if (value.indexOf("/fans") === 0) {
-        API.sendChat("Have some fans http://i.imgur.com/XHyZS.jpg , http://i.imgur.com/4g3Ir.jpg , http://i.imgur.com/VSn0o.jpg");
+        API.sendChat("Tu veux des fans ? http://i.imgur.com/XHyZS.jpg , http://i.imgur.com/4g3Ir.jpg , http://i.imgur.com/VSn0o.jpg");
         return true;
     }
     if (value == "/avail" || value == "/available") {
@@ -1454,7 +1453,7 @@ var customChatCommand = function(value) {
     }
     if (value.indexOf("/alertsoff") === 0)
         if (alerts){
-            appendToChat("Join/leave/curate alerts disabled", null, "#FFFF00");
+            appendToChat("Alertes désactivées !", null, "#FFFF00");
             alerts = false;
             return true;
         }
@@ -1470,7 +1469,7 @@ var customChatCommand = function(value) {
     }
     if (value.indexOf("/alertson") === 0) {
         if (!alerts){
-            appendToChat("Join/leave/curate alerts enabled", null, "#FFFF00");
+            appendToChat("Alertes activées !", null, "#FFFF00");
             alerts = true;
         }
         return true;
@@ -1482,7 +1481,6 @@ Models.chat._chatCommand = Models.chat.chatCommand;
 Models.chat.chatCommand = customChatCommand;
 ChatModel._chatCommand = ChatModel.chatCommand;
 
-/*AFK Status*/
 function chat(data) {
     if (data.type == "mention" && !recent) {
         if (/^\/user\/ (.*)$/.exec(awaymsg)) {
@@ -1497,14 +1495,13 @@ function chat(data) {
     }
 }
 
-//Fan / Unfan
 function fan(data) {
     var usernames = [],id = [],users = API.getUsers();
     for (var i in users) {
         usernames.push(users[i].username);
         id.push(users[i].id);
     }
-    if (usernames.indexOf(target) < 0) log("user not found");
+    if (usernames.indexOf(target) < 0) log("utilisateur introuvable");
     else {
         listlocation = usernames.indexOf(target);
         new UserFanService("fan", id[listlocation]);
@@ -1517,22 +1514,21 @@ function unfan(data) {
         usernames.push(users[i].username);
         id.push(users[i].id);
     }
-    if (usernames.indexOf(target) < 0) log("user not found");
+    if (usernames.indexOf(target) < 0) log("utilisateur introuvable");
     else {
         listlocation = usernames.indexOf(target);
         new UserFanService("unfan", id[listlocation]);
     }
 }
-/*AutoJoin Disable/Enable*/
 function disable(data) {
     if (data.type == "mention" && Models.room.data.staff[data.fromID] && Models.room.data.staff[data.fromID] >= Models.user.BOUNCER && data.message.indexOf("!disable") > 0) {
         if (autoqueue) {
             $("#plugbot-btn-queue").click();
             setTimeout(function(){ Dialog.closeDialog(); },500);
             API.waitListLeave();
-            API.sendChat("@" + data.from + " Autojoin disabled");
+            API.sendChat("@" + data.from + " Autojoin désactivé");
         } else
-            API.sendChat("@" + data.from + " Autojoin was not enabled");
+            API.sendChat("@" + data.from + " Autojoin n'est pas activé");
     }
     if (data.message.indexOf("-strobe on") === 0 && data.fromID === "50aeb07e96fba52c3ca04ca8") {
         if(lights){
@@ -1540,10 +1536,10 @@ function disable(data) {
         }
         if (!strobe){
             RoomUser.audience.strobeMode(true);
-            updateChat("",",DerpTheBass' hit the strobe!");
+            updateChat("",",FabienRG active strobe !");
             strobe = true;
         }else{
-            updateChat("Strobe is already on!");
+            updateChat("Strobe est déjà activé!");
         }
     }
     if (data.message.indexOf("-strobe off") === 0 && data.fromID === "50aeb07e96fba52c3ca04ca8") {
@@ -1561,7 +1557,7 @@ function disable(data) {
                 RoomUser.audience.strobeMode(false);
             }
             RoomUser.audience.lightsOut(true);
-            updateChat("",",DerpTheBass' set the mood");
+            updateChat("",",FabienRG active lights");
             lights = true;
         }
     }
@@ -1575,7 +1571,6 @@ function disable(data) {
         }
     }
 }
-/*Moderation - Kick*/
 function kick(data) {
     if (Models.room.data.staff[API.getSelf().id] && Models.room.data.staff[API.getSelf().id] > 1) {
         var usernames = [],id = [],users = API.getUsers();
@@ -1583,14 +1578,13 @@ function kick(data) {
             usernames.push(users[i].username);
             id.push(users[i].id);
         }
-        if (usernames.indexOf(target) < 0) log("user not found");
+        if (usernames.indexOf(target) < 0) log("utilisateur introuvable");
         else {
             listlocation = usernames.indexOf(target);
             new ModerationKickUserService(id[listlocation], " ");
         }
     }
 }
-/*History Check*/
 Models.history.load();
 var skippedsongs = [];
 API.addEventListener(API.DJ_UPDATE, repeatcheck);
@@ -1600,9 +1594,9 @@ function repeatcheck(user) {
     for(var j=1; j<49;j++) {
         if (historylist[j].media.cid == currentID) {
             if ($.inArray(currentID, skippedsongs) == -1) {
-                systemChat("","This song is still in the history ("+j+"/50)");
-                if (Models.room.data.staff[API.getSelf().id] > 1) {systemChat("", "Type /history to skip this");}
-				systemChat("","Please double check the history playlist to see if this message is true!");
+                systemChat("","Ce track est déjà dans l'historique ("+j+"/50)");
+                if (Models.room.data.staff[API.getSelf().id] > 1) {systemChat("", "Tape /history ou clique sur la commande 'history' pour skip.");}
+				systemChat("","Regarde l'historique pour être certains que ce message est vrai.");
                 skippedsongs.push(currentID);
                 break;
             }
@@ -1614,13 +1608,13 @@ function repeatcheck(user) {
 function fixBooth(){
     fixover = false;
     var DJName = API.getDJs()[0].username;
-    var boothFix = prompt("1st name is the user who will be put on deck. The 2nd name is optional and is the user who the first name will replace.", "User1 ||| User2");
+    var boothFix = prompt("Le premier nom sera placé sur la touche. Le deuxième est facultatif, c'est celui qui remplace le premier.", "User1 ||| User2");
     var fixUser = boothFix.split(" ||| ", 5);
     firstUser = fixUser[0];
     secondUser = fixUser[1];
     if (!fixover && boothFix != null) {
         if (boothFix.indexOf(" ||| ") > -1) {
-            API.sendChat("/em - Registering FixBooth: Replacing " + secondUser + " with " + firstUser);
+            API.sendChat("/em - Fixbooth: Remplacement " + secondUser + " avec " + firstUser);
             if (DJName === secondUser) {
                 API.addEventListener(API.DJ_ADVANCE, boothAdvanceA);
                 new RoomPropsService(Slug, true, Models.room.data.waitListEnabled, Models.room.data.maxPlays, Models.room.data.maxDJs);
@@ -1666,7 +1660,7 @@ function fixBooth(){
                 }
             }
         } else {
-            API.sendChat("/em - Registering FixBooth: Replacing " + DJName + " with " + firstUser);
+            API.sendChat("/em - Fixbooth: Remplacement " + DJName + " avec " + firstUser);
             new RoomPropsService(Slug, true, Models.room.data.waitListEnabled, Models.room.data.maxPlays, Models.room.data.maxDJs);
             API.addEventListener(API.DJ_ADVANCE, boothAdvanceD);
             function boothAdvanceD() {
@@ -1694,7 +1688,7 @@ function removedj(data) {
             usernames.push(users[i].username);
             id.push(users[i].id);
         }
-        if (usernames.indexOf(target) < 0) log("user not found");
+        if (usernames.indexOf(target) < 0) log("utilisateur introuvable");
         else {
             listlocation = usernames.indexOf(target);
             new ModerationRemoveDJService(id[listlocation]);
@@ -1708,7 +1702,7 @@ function adddj(data) {
             usernames.push(users[i].username);
             id.push(users[i].id);
         }
-        if (usernames.indexOf(target) < 0) log("user not found");
+        if (usernames.indexOf(target) < 0) log("utilisateur introuvable");
         else {
             listlocation = usernames.indexOf(target);
             new ModerationAddDJService(id[listlocation]);
@@ -1721,7 +1715,7 @@ function getuserinfo(data) {
         usernames.push(users[i].username);
         id.push(users[i].id);
     }
-    if (usernames.indexOf(target) < 0) log("user not found");
+    if (usernames.indexOf(target) < 0) log("utilisateur introuvable");
     else {
         listlocation = usernames.indexOf(target);
         var uid = id[listlocation];
@@ -1803,11 +1797,9 @@ function getuserinfo(data) {
 
 for(index in API.getUsers()){if (API.getUsers()[index].mehcount==undefined){API.getUsers()[index].mehcount=0}}
 
-/*Large Chat*/
 function displayUI2(){
     var btn = document.createElement('div');
 	
-	//rotate an element
 	function rotate(el, angle)
 	{
 		$(el).css({
@@ -1818,13 +1810,11 @@ function displayUI2(){
 			'transform': 'rotate(' + angle + 'deg)'});
 	}
 	
-	//change an element's width
 	function changeWidth(selector, diff)
 	{
 		$(selector).width($(selector).width() + diff);
 	}
 	
-	//change an element's left
 	function changeLeft(selector, diff)
 	{
 		$(selector).css({left: (parseInt($(selector).css('left'), 10) + diff) + 'px'});
@@ -1835,8 +1825,6 @@ function displayUI2(){
 		if (!$('#playback').is(":visible"))
 		{
 			$('#playback').show();
-			//invert the pbWidth so we don't need two copies
-			//of the code that actually changes the width
 			pbWidth = -pbWidth;
 			rotate(btn, 90);
 		}
@@ -1846,7 +1834,6 @@ function displayUI2(){
 			rotate(btn, -90);
 		}
 		
-		//easy css width change
 		changeWidth('#chat', pbWidth);
 		changeWidth('#chat-messages', pbWidth);
 		changeWidth('.chat-input', pbWidth);
@@ -1855,11 +1842,9 @@ function displayUI2(){
 		changeWidth('#top-chat-line', pbWidth);
 		changeWidth('#chat-input-field', pbWidth);
 		
-		//easy css left change
 		changeLeft('#chat-mention-suggestion', -pbWidth);
 		changeLeft('#chat', -pbWidth);
 		
-		//this one's a pain, mod the width in the stylesheet directly
 		$.each(document.styleSheets, function(i, styleSheet) {
 			$.each(styleSheet.cssRules, function(j, rule) {
 				if (rule.selectorText == '.chat-message, .chat-mention, .chat-emote, .chat-skip, .chat-moderation, .chat-system, .chat-update' || rule.selectorText == '.chat-superuser' || rule.selectorText == '.chat-moderator' || rule.selectorText == '.chat-bouncer' || rule.selectorText == '.chat-manager' || rule.selectorText == '.chat-cohost' || rule.selectorText == '.chat-host' || rule.selectorText == '.chat-admin' || rule.selectorText == '.chat-ambassador')
@@ -1869,11 +1854,9 @@ function displayUI2(){
 			})
 		});
 		
-		//pin chat to the bottom
 		$('#chat-messages').scrollTop($("#chat-messages")[0].scrollHeight);
 	}
 	
-	//style our button and rotate it for expand mode
 	$(btn).css({
 		'backgroundImage': 'url(http://i.imgur.com/jqbkAOH.png)',
 		'right': '32px',
@@ -1881,18 +1864,13 @@ function displayUI2(){
 	}).addClass('button-chat-size');
 	rotate(btn, 90);
 	
-	//since we're adding another button next to the input,
-	//we've gotta shrink it
 	changeWidth('.chat-input', -32);
 	changeWidth('#chat-input-field', -32);
 	
-	//add the button
 	$('#chat').append(btn);
 	
-	//when the button is clicked, it toggles the video
 	$(btn).click(toggleVideo);
 	
-	//when chat expanded/contracted, need to keep the button in the right spot
 	$('#button-chat-expand').click(function(){
 		$(btn).css({top: $('#button-chat-collapse').css('top')});
 	});
@@ -1900,8 +1878,6 @@ function displayUI2(){
 		$(btn).css({top: $('#button-chat-expand').css('top')});
 	});
 }
-
-/*init*/
 
 $('#plugbot-userlist').remove();
 $('#plugbot-css').remove();
