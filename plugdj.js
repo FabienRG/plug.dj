@@ -159,12 +159,6 @@ function displayUI(data) {
         $('#plugbot-ui').append(
 				'<div id="plugbot-links" style="min-width: 120px; max-height: 98.6%; overflow-x: hidden; overflow-y: auto; position: fixed; z-index: 99; border-style: solid; border-width: 1px; border-color: #000; background-color: rgba(10, 10, 10, 0.5); border-right: 0 !important; padding: 0px 0px 12px 0px;">' +
 				
-				'<p id="plugbot-btn-menu" style="color:#FF0066; "><b>db</b></p>' +
-                '<div style="width: 100%; visibility:visible">' +
-				'<p id="strobe-menu" style="color:#78E700">strobe-menu</p>' +
-				'<p id="lights-menu" style="color:#78E700">lights-menu</p>' +
-				'</div>' +
-				
             	'<p id="plugbot-btn-menu" style="color:#FF0066; "><b>realityg</b></p>' +
                 '<div style="width: 100%; visibility:visible">' +
                 '<p id="plugbot-btn-woot" style="color:#78E700">AutoWoot</p>' +
@@ -184,17 +178,12 @@ function displayUI(data) {
 				'<p id="plugbot-btn-facebook" style="color:#FFA400;">Facebook</p>' +
 				'<p id="plugbot-btn-twitter" style="color:#FFA400">Twitter</p>' +
 				'<p id="plugbot-btn-youtube" style="color:#FFA400">YouTube</p>' +
-				'<p id="plugbot-btn-soundcloud" style="color:#FFA400">SoundCloud</p>' +
-				'<p id="plugbot-btn-spreadshirt" style="color:#FFA400">SpreadShirt</p>' +
-				'<p id="plugbot-btn-submissions" style="color:#FFA400">Submissions</p>' +
 				'</div>' +
 				
 				'<p id="plugbot-btn-menu3" style="color:#FF0066; margin-top:20px;"><b>Help</b></p>' +
 				'<div style="width: 100%; visibility:visible">' +
 				'<p id="plugbot-btn-welcome" style="color:#3F92D2;">Welcome</p>' +
 				'<p id="plugbot-btn-justwoot" style="color:#3F92D2;">WOOT</p>' +
-				'<p id="plugbot-btn-chromead" style="color:#3F92D2;">Chrome AD</p>' +
-				'<p id="plugbot-btn-bassplugad" style="color:#3F92D2">BassPlug AD</p>' +
 				'<p id="plugbot-btn-winbooth" style="color:#3F92D2">Woot Booth</p>' +
 				'</div>' +
 				
@@ -444,30 +433,6 @@ function initUIListeners()
         function(){
             $(this).css("background-color", "rgba(10, 10, 10, 0.5)");
         });
-	$("#plugbot-btn-soundcloud") .hover(function(){
-            $(this).css("background-color", "rgba(39, 39, 39, 0.5)");
-        },
-        function(){
-            $(this).css("background-color", "rgba(10, 10, 10, 0.5)");
-        });
-	$("#plugbot-btn-spreadshirt") .hover(function(){
-            $(this).css("background-color", "rgba(39, 39, 39, 0.5)");
-        },
-        function(){
-            $(this).css("background-color", "rgba(10, 10, 10, 0.5)");
-        });
-	$("#plugbot-btn-chromead") .hover(function(){
-            $(this).css("background-color", "rgba(39, 39, 39, 0.5)");
-        },
-        function(){
-            $(this).css("background-color", "rgba(10, 10, 10, 0.5)");
-        });
-	$("#plugbot-btn-bassplugad") .hover(function(){
-            $(this).css("background-color", "rgba(39, 39, 39, 0.5)");
-        },
-        function(){
-            $(this).css("background-color", "rgba(10, 10, 10, 0.5)");
-        });
 	$("#plugbot-btn-changename") .hover(function(){
             $(this).css("background-color", "rgba(39, 39, 39, 0.5)");
         },
@@ -616,7 +581,7 @@ function initUIListeners()
                 $("#lights-menu").click();
             }
             RoomUser.audience.strobeMode(true);
-            updateChat("","Vous avez touché le stroboscope !");
+            updateChat("","Strobe activé!");
             strobe = true;
         }else{
             RoomUser.audience.strobeMode(false);
@@ -633,7 +598,7 @@ function initUIListeners()
                 $("#strobe-menu").click();
             }
             RoomUser.audience.lightsOut(true);
-            updateChat("","Vous définissez l'ambiance !");
+            updateChat("","Lights activé !");
             lights = true;
         }else{
             RoomUser.audience.lightsOut(false);
@@ -671,7 +636,7 @@ function initUIListeners()
         if (!autorespond) {
             API.removeEventListener(API.CHAT,chat);
         } else {
-            awaymsg = prompt("Le message que vous entrez ici sera envoyé si quelqu'un parle de vous.\nAjoutez /user/ au début de votre message afk si vous voulez répondre à la personne qui vous parle.","/me est à partir du clavier.");
+            awaymsg = prompt("Le message que vous entrez ici sera envoyé si quelqu'un parle de vous.\nAjoutez /user/ au début de votre message afk si vous voulez répondre à la personne qui vous parle.","/me ");
             if(awaymsg != null){
                 !autorespond;
                 $("#plugbot-btn-autorespond").css("color", autorespond, "#ED1C24");
@@ -706,7 +671,7 @@ function initUIListeners()
         }
     });
 	$("#plugbot-btn-welcome").on("click", function() {
-        Models.chat.sendChat("/em - Welcome, Rules of the Lobby can be found at Top Left of realityg Radio by clicking \"Info\".");
+        Models.chat.sendChat("/em - Bienvenue sur le salon plug.dj officiel du site RealityGaming.fr !");
     });
 	$("#plugbot-btn-clearchat").on("click", function() {
         Models.chat.sendChat("/clear");
@@ -718,25 +683,13 @@ function initUIListeners()
         Models.chat.sendChat("/cap 200");
     });
 	$("#plugbot-btn-facebook").on("click", function() {
-        Models.chat.sendChat("/em - Like us on Facebook : http://bit.ly/realitygFB");
+        Models.chat.sendChat("/em - Suivez-nous sur Facebook : http://facebook.com/RealityGamingFR");
     });
 	$("#plugbot-btn-twitter").on("click", function() {
-        Models.chat.sendChat("/em - Follow us on Twitter : http://bit.ly/10SMxNF");
+        Models.chat.sendChat("/em - Suivez-nous sur Twitter : http://twitter.com/RealityGamingFR");
     });
 	$("#plugbot-btn-youtube").on("click", function() {
-        Models.chat.sendChat("/em - Subscribe to us on YouTube : http://bit.ly/realitygYT");
-    });
-	$("#plugbot-btn-soundcloud").on("click", function() {
-        Models.chat.sendChat("/em - Follow us on SoundCloud: http://bit.ly/ZaNxWq");
-    });
-	$("#plugbot-btn-spreadshirt").on("click", function() {
-        Models.chat.sendChat("/em - Buy realityg Clothing here - http://realityg.spreadshirt.com");
-    });
-	$("#plugbot-btn-chromead").on("click", function() {
-        Models.chat.sendChat("/em - Got Chrome? Want to prevent from being kicked? Go get an AutoWoot! We recommend you use this Chrome Plugin: http://bit.ly/ZBdAIj");
-    });
-	$("#plugbot-btn-bassplugad").on("click", function() {
-        Models.chat.sendChat("/em - Want to prevent from being kicked? Go get an AutoWoot! We recommend you use this Plugin: http://bit.ly/10TCAKV");
+        Models.chat.sendChat("/em - Abonnez-vous à notre chaîne YouTube : http://youtube.com/GlitchsHacksFR");
     });
 	$("#plugbot-btn-changename").on("click", function() {
         Models.chat.sendChat("/em - You can change your Name + Avatar by clicking on your name to show the options at the bottom right of lobby!");
@@ -776,9 +729,6 @@ function initUIListeners()
     });
 	$("#plugbot-btn-whatmehs").on("click", function() {
         alert("Meh Thresholds (This can vary depending how many listeners are AFK but this is a general rule)\n\n0-20 Listeners - 5 Mehs\n20-50 Listeners - 7 Mehs\n50-100 Listeners - 10/15 Mehs\n100+ Listeners - 15/20 Mehs");
-    });
-	$("#plugbot-btn-submissions").on("click", function() {
-        Models.chat.sendChat("/em - Use our DropBox function to submit songs instantly via SoundCloud - http://bit.ly/ZdKrHS or email us at submissions@realityg.com");
     });
 	$("#plugbot-btn-rulesall").on("click", function() {
         setTimeout(function(){
