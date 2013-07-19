@@ -155,7 +155,7 @@ function displayUI(data) {
         $('#plugbot-ui').append(
 				'<div id="plugbot-links" style="min-width: 120px; max-height: 98.6%; overflow-x: hidden; overflow-y: auto; position: fixed; z-index: 99; border-style: solid; border-width: 1px; border-color: #000; background-color: rgba(10, 10, 10, 0.5); border-right: 0 !important; padding: 0px 0px 12px 0px;">' +
 				
-            	'<p id="plugbot-btn-menu" style="color:#FF0066; "><b>realityg</b></p>' +
+            	'<p id="plugbot-btn-menu" style="color:#FF0066; "><b>RealityG</b></p>' +
                 '<div style="width: 100%; visibility:visible">' +
                 '<p id="plugbot-btn-woot" style="color:#78E700">AutoWoot</p>' +
 				'<p id="plugbot-btn-queue" style="color:#78E700">AutoJoin</p>' +
