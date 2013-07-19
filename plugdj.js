@@ -180,15 +180,6 @@ function displayUI(data) {
 				'<div style="width: 100%; visibility:visible">' +
 				'<p id="plugbot-btn-welcome" style="color:#3F92D2;">Welcome</p>' +
 				'<p id="plugbot-btn-justwoot" style="color:#3F92D2;">WOOT</p>' +
-				'<p id="plugbot-btn-winbooth" style="color:#3F92D2">Woot Booth</p>' +
-				'</div>' +
-				
-				'<p id="plugbot-btn-menu4" style="color:#FF0066; margin-top:20px;"><b>Threshold</b></p>' +
-				'<div style="width: 100%; visibility:visible">' +
-				'<p id="plugbot-btn-5mehs" style="color:#AD66D5;">5 Mehs</p>' +
-				'<p id="plugbot-btn-7mehs" style="color:#AD66D5">7 Mehs</p>' +
-				'<p id="plugbot-btn-10mehs" style="color:#AD66D5">10 Mehs</p>' +
-				'<p id="plugbot-btn-15mehs" style="color:#AD66D5">15 Mehs</p>' +
 				'</div>' +
 				
 				'<p id="plugbot-btn-menu5" style="color:#FF0066; margin-top:20px;"><b>Commands</b></p>' +
@@ -363,12 +354,6 @@ function initUIListeners()
         function(){
             $(this).css("background-color", "rgba(10, 10, 10, 0.5)");
         });
-    $("#plugbot-btn-winbooth") .hover(function(){
-            $(this).css("background-color", "rgba(39, 39, 39, 0.5)");
-        },
-        function(){
-            $(this).css("background-color", "rgba(10, 10, 10, 0.5)");
-        });
     $("#plugbot-btn-queue") .hover(function(){
             $(this).css("background-color", "rgba(39, 39, 39, 0.5)");
         },
@@ -460,30 +445,6 @@ function initUIListeners()
             $(this).css("background-color", "rgba(10, 10, 10, 0.5)");
         });
 	$("#plugbot-btn-themes") .hover(function(){
-            $(this).css("background-color", "rgba(39, 39, 39, 0.5)");
-        },
-        function(){
-            $(this).css("background-color", "rgba(10, 10, 10, 0.5)");
-        });
-	$("#plugbot-btn-5mehs") .hover(function(){
-            $(this).css("background-color", "rgba(39, 39, 39, 0.5)");
-        },
-        function(){
-            $(this).css("background-color", "rgba(10, 10, 10, 0.5)");
-        });
-	$("#plugbot-btn-7mehs") .hover(function(){
-            $(this).css("background-color", "rgba(39, 39, 39, 0.5)");
-        },
-        function(){
-            $(this).css("background-color", "rgba(10, 10, 10, 0.5)");
-        });
-	$("#plugbot-btn-10mehs") .hover(function(){
-            $(this).css("background-color", "rgba(39, 39, 39, 0.5)");
-        },
-        function(){
-            $(this).css("background-color", "rgba(10, 10, 10, 0.5)");
-        });
-	$("#plugbot-btn-15mehs") .hover(function(){
             $(this).css("background-color", "rgba(39, 39, 39, 0.5)");
         },
         function(){
