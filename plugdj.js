@@ -179,6 +179,7 @@ function displayUI(data) {
 				'<p id="plugbot-btn-menu3" style="color:#FF0066; margin-top:20px;"><b>Help</b></p>' +
 				'<div style="width: 100%; visibility:visible">' +
 				'<p id="plugbot-btn-welcome" style="color:#3F92D2;">Welcome</p>' +
+				'<p id="plugbot-btn-rulesall" style="color:#3F92D2;">Rules</p>' +
 				'<p id="plugbot-btn-justwoot" style="color:#3F92D2;">WOOT</p>' +
 				'</div>' +
 				
