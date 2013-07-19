@@ -78,7 +78,7 @@ function initAPIListeners()
     API.addEventListener(API.CURATE_UPDATE, function(obj) {
         if (alerts) {
             var media = API.getMedia();
-            log(obj.user.username + " à ajouté " + media.author + " - " + media.title);
+            log(obj.user.username + " a ajouté " + media.author + " - " + media.title);
             API.getUser(obj.user.id).curated=true;
             if (userList)
                 populateUserlist();
@@ -89,7 +89,7 @@ function initAPIListeners()
     });
     API.addEventListener(API.USER_JOIN, function(user) {
         if (alerts){
-            appendToChat(user.username + " à rejoint le salon", null, "#E90E82");
+            appendToChat(user.username + " a rejoint le salon", null, "#E90E82");
             if(debug){
                 console.log("[realityg] Affichage d'alerte activé");
             }
@@ -105,7 +105,7 @@ function initAPIListeners()
     });
     API.addEventListener(API.USER_LEAVE, function(user) {
         if (alerts){
-            appendToChat(user.username + " à quitté le salon", null, "#E90E82");
+            appendToChat(user.username + " a quitté le salon", null, "#E90E82");
         }
         if (userList)
             populateUserlist();
@@ -603,8 +603,8 @@ function initUIListeners()
     $("#strobe-menu").on("click", function() {
         $(this).css("color", !strobe ? "#00FFDE" : "#3B3B3B");
         $(this).css("border-color", !strobe ? "#00FFDE" : "#3B3B3B");
-        /*        $("#lights-menu").css("border-color", "#00FFDE");
-         $("#lights-menu").css("color", "#00FFDE");*/
+        $("#lights-menu").css("border-color", "#00FFDE");
+        $("#lights-menu").css("color", "#00FFDE");
         if(!strobe){
             if(lights){
                 $("#lights-menu").click();
@@ -620,8 +620,8 @@ function initUIListeners()
     $("#lights-menu").on("click", function() {
         $(this).css("color", !lights ? "#00FFDE" : "#3B3B3B");
         $(this).css("border-color", !lights ? "#00FFDE" : "#3B3B3B");
-        /*$("#strobe-menu").css("border-color", "#00FFDE");
-         $("#strobe-menu").css("color", "#00FFDE");*/
+        $("#strobe-menu").css("border-color", "#00FFDE");
+        $("#strobe-menu").css("color", "#00FFDE");
         if(!lights){
             if(strobe){
                 $("#strobe-menu").click();
