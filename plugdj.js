@@ -749,7 +749,6 @@ function addGlobalStyle(css){
     head.appendChild(style);
 }
 {
-    //Changes the look of plug
     addGlobalStyle('#button-chat-collapse, #button-chat-collapse {background: url(http://i.imgur.com/jqbkAOH.png);');
     addGlobalStyle('#button-chat-expand, #button-chat-expand {background: url(http://i.imgur.com/6dFswPF.png);');
     addGlobalStyle('#chat, #chat {border-style: solid; border-width: 1px; border-color: #000; ');
@@ -761,12 +760,10 @@ function addGlobalStyle(css){
 	addGlobalStyle('#room-wheel, #room-wheel {background-image: max-height:0px;max-width:0px;}');
 	addGlobalStyle('#dj-console, #dj-console {background-image: url(http://i.imgur.com/IpyhanS.gif);min-height:33px;min-width:131px;}');
 	//addGlobalStyle('html{background: url("") no-repeat scroll center top #424242;');
-//Changes the color of user's names in chat
     addGlobalStyle('.chat-from-featureddj, .chat-from-featureddj {color: #00B8FF !important;}');
     addGlobalStyle('.chat-from-manager, .chat-from-manager {color: #04BD04 !important;}');
     addGlobalStyle('.chat-from-cohost, .chat-from-cohost {color: #C807D1 !important;}');
     addGlobalStyle('.chat-from-host, .chat-from-host {color: #7B00FF !important;}');
-//Changes the icons and background color
     addGlobalStyle('.chat-host, .chat-host {background-image: url(http://i.imgur.com/zSFh9Kv.png); no repeat 0 5px);}');
     addGlobalStyle('.chat-cohost, .chat-cohost {background-image: url(http://i.imgur.com/zSFh9Kv.png); no repeat 0 5px;}');
     addGlobalStyle('.chat-manager, .chat-manager {background-image: url(http://i.imgur.com/ClBhjpm.png); no repeat 0 5px;}');
@@ -1080,7 +1077,7 @@ var customChatCommand = function(value) {
             setTimeout(function(){ recentEmote = false; },60000);
             return true;
         }else{
-            appendToChat("Wait until the emote timer is done!", null, "#C50000");
+            appendToChat("Protection flood installée par le créateur pour éviter tout abus !", null, "#C50000");
             return true;
         }
     }
@@ -1091,7 +1088,7 @@ var customChatCommand = function(value) {
             setTimeout(function(){ recentEmote = false; },60000);
             return true;
         }else{
-            appendToChat("Wait until the emote timer is done!", null, "#C50000");
+            appendToChat("Protection flood installée par le créateur pour éviter tout abus !", null, "#C50000");
             return true;
         }
     }
@@ -1102,7 +1099,7 @@ var customChatCommand = function(value) {
             setTimeout(function(){ recentEmote = false; },60000);
             return true;
         }else{
-            appendToChat("Wait until the emote timer is done!", null, "#C50000");
+            appendToChat("Protection flood installée par le créateur pour éviter tout abus !", null, "#C50000");
             return true;
         }
     }
@@ -1113,7 +1110,7 @@ var customChatCommand = function(value) {
             setTimeout(function(){ recentEmote = false; },60000);
             return true;
         }else{
-            appendToChat("Wait until the emote timer is done!", null, "#C50000");
+            appendToChat("Protection flood installée par le créateur pour éviter tout abus !", null, "#C50000");
             return true;
         }
     }
@@ -1124,7 +1121,7 @@ var customChatCommand = function(value) {
             setTimeout(function(){ recentEmote = false; },60000);
             return true;
         }else{
-            appendToChat("Wait until the emote timer is done!", null, "#C50000");
+            appendToChat("Protection flood installée par le créateur pour éviter tout abus !", null, "#C50000");
             return true;
         }
     }
@@ -1135,7 +1132,7 @@ var customChatCommand = function(value) {
             setTimeout(function(){ recentEmote = false; },60000);
             return true;
         }else{
-            appendToChat("Wait until the emote timer is done!", null, "#C50000");
+            appendToChat("Protection flood installée par le créateur pour éviter tout abus !", null, "#C50000");
             return true;
         }
     }
@@ -1146,7 +1143,7 @@ var customChatCommand = function(value) {
             setTimeout(function(){ recentEmote = false; },60000);
             return true;
         }else{
-            appendToChat("Wait until the emote timer is done!", null, "#C50000");
+            appendToChat("Protection flood installée par le créateur pour éviter tout abus !", null, "#C50000");
             return true;
         }
     }
@@ -1157,7 +1154,7 @@ var customChatCommand = function(value) {
             setTimeout(function(){ recentEmote = false; },60000);
             return true;
         }else{
-            appendToChat("Wait until the emote timer is done!", null, "#C50000");
+            appendToChat("Protection flood installée par le créateur pour éviter tout abus !", null, "#C50000");
             return true;
         }
     }
@@ -1169,7 +1166,7 @@ var customChatCommand = function(value) {
             setTimeout(function(){recentEmote = false;},60000);
             return true;
         }else{
-            appendToChat("Wait until the emote timer is done!", null, "#C50000");
+            appendToChat("Protection flood installée par le créateur pour éviter tout abus !", null, "#C50000");
             return true;
         }
     }
@@ -1180,7 +1177,7 @@ var customChatCommand = function(value) {
             setTimeout(function(){ recentEmote = false; },60000);
             return true;
         }else{
-            appendToChat("Wait until the emote timer is done!", null, "#C50000");
+            appendToChat("Protection flood installée par le créateur pour éviter tout abus !", null, "#C50000");
             return true;
         }
     }
@@ -1191,7 +1188,7 @@ var customChatCommand = function(value) {
             setTimeout(function(){ recentEmote = false; },60000);
             return true;
         }else{
-            appendToChat("Wait until the emote timer is done!", null, "#C50000");
+            appendToChat("Protection flood installée par le créateur pour éviter tout abus !", null, "#C50000");
             return true;
         }
     }
@@ -1202,7 +1199,7 @@ var customChatCommand = function(value) {
             setTimeout(function(){ recentEmote = false; },60000);
             return true;
         }else{
-            appendToChat("Wait until the emote timer is done!", null, "#C50000");
+            appendToChat("Protection flood installée par le créateur pour éviter tout abus !", null, "#C50000");
             return true;
         }
     }
@@ -1213,7 +1210,7 @@ var customChatCommand = function(value) {
             setTimeout(function(){ recentEmote = false; },60000);
             return true;
         }else{
-            appendToChat("Wait until the emote timer is done!", null, "#C50000");
+            appendToChat("Protection flood installée par le créateur pour éviter tout abus !", null, "#C50000");
             return true;
         }
     }
@@ -1224,7 +1221,7 @@ var customChatCommand = function(value) {
             setTimeout(function(){ recentEmote = false; },60000);
             return true;
         }else{
-            appendToChat("Wait until the emote timer is done!", null, "#C50000");
+            appendToChat("Protection flood installée par le créateur pour éviter tout abus !", null, "#C50000");
             return true;
         }
     }
@@ -1235,7 +1232,7 @@ var customChatCommand = function(value) {
             setTimeout(function(){ recentEmote = false; },60000);
             return true;
         }else{
-            appendToChat("Wait until the emote timer is done!", null, "#C50000");
+            appendToChat("Protection flood installée par le créateur pour éviter tout abus !", null, "#C50000");
             return true;
         }
     }
@@ -1250,7 +1247,7 @@ var customChatCommand = function(value) {
             },300);
             return true;
         }else{
-            modChat("", "Sorry, you have to be at least a manager to do that.");
+            modChat("", "Vous n'avez pas la permission de faire cela.");
             return true;
         }
     }
@@ -1260,17 +1257,17 @@ var customChatCommand = function(value) {
             fixBooth();
             return true;
         }else{
-            modChat("", "Sorry, you have to be at least a manager to do that.");
+            modChat("", "Vous n'avez pas la permission de faire cela.");
             return true;
         }
     }
     if (value.indexOf("/cancelfix") === 0){
         if (Models.room.data.staff[API.getSelf().id] > 2){
             cancelFix = true;
-            API.sendChat("/me FixBooth Canceled");
+            API.sendChat("/me Fixbooth annulé");
             return true;
         }else{
-            modChat("", "Sorry, you have to be at least a manager to do that.");
+            modChat("", "Vous n'avez pas la permission de faire cela.");
             return true;
         }
     }
@@ -1279,17 +1276,17 @@ var customChatCommand = function(value) {
             new ModerationForceSkipService();
             return true;
         }else{
-            modChat("","Sorry, you have to be at least a bouncer to do that.");
+            modChat("","Vous n'avez pas la permission de faire cela.");
             return true;
         }
     }
 	if (value.indexOf("/history") === 0) {
         if (Models.room.data.staff[API.getSelf().id] > 1){
             new ModerationForceSkipService();
-			Models.chat.sendChat("/em - This track is still in the history, please check next time!");
+			Models.chat.sendChat("/em - Ce track ce trouve dans l'historique, ce qui signifie qu'il a été diffusé récemment !");
             return true;
         }else{
-            modChat("","Sorry, you have to be at least a bouncer to do that.");
+            modChat("","Vous n'avez pas la permission de faire cela.");
             return true;
         }
     }
@@ -1300,7 +1297,7 @@ var customChatCommand = function(value) {
             kick();
             return true;
         }else{
-            modChat("","Sorry, you have to be at least a bouncer to do that.");
+            modChat("","Vous n'avez pas la permission de faire cela.");
             return true;
         }
     }
@@ -1311,7 +1308,7 @@ var customChatCommand = function(value) {
             removedj();
             return true;
         }else{
-            modChat("","Sorry, you have to be at least a bouncer to do that.");
+            modChat("","Vous n'avez pas la permission de faire cela.");
             return true;
         }
     }
@@ -1322,7 +1319,7 @@ var customChatCommand = function(value) {
             adddj();
             return true;
         }else{
-            modChat("","Sorry, you have to be at least a bouncer to do that.");
+            modChat("","Vous n'avez pas la permission de faire cela.");
             return true;
         }
     }
@@ -1333,7 +1330,7 @@ var customChatCommand = function(value) {
             getuserinfo();
             return true;
         }else{
-            modChat("","Sorry, you have to be at least a bouncer to do that.");
+            modChat("","Vous n'avez pas la permission de faire cela.");
             return true;
         }
     }
@@ -1342,7 +1339,7 @@ var customChatCommand = function(value) {
             new RoomPropsService(Slug,true,Models.room.data.waitListEnabled,Models.room.data.maxPlays,Models.room.data.maxDJs);
             return true;
         }else{
-            modChat("","Sorry, you have to be at least a manager to do that.");
+            modChat("","Vous n'avez pas la permission de faire cela.");
             return true;
         }
     }
@@ -1351,7 +1348,7 @@ var customChatCommand = function(value) {
             new RoomPropsService(Slug,false,Models.room.data.waitListEnabled,Models.room.data.maxPlays,Models.room.data.maxDJs);
             return true;
         }else{
-            modChat("","Sorry, you have to be at least a manger to do that");
+            modChat("","Vous n'avez pas la permission de faire cela.");
             return true;
         }
     }
