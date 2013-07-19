@@ -164,6 +164,7 @@ function displayUI(data) {
                 '<p id="plugbot-btn-woot" style="color:#78E700">AutoWoot</p>' +
 				'<p id="plugbot-btn-queue" style="color:#78E700">AutoJoin</p>' +
                 '<p id="plugbot-btn-hidevideo" style="color:#78E700">Hide Video</p>' +
+				'<p id="plugbot-btn-autorespond" style="color:#78E700">AutoRespond</p>' +
                 '<p id="plugbot-btn-userlist" style="color:#78E700">Userlist</p>' +
                 '<p id="plugbot-btn-animationoff" style="color:#78E700">Animation</p>' +
                 '<p id="plugbot-btn-stream" style="color:streambuttoncolor">Stream</p>' +
@@ -609,7 +610,7 @@ function initUIListeners()
                 $("#lights-menu").click();
             }
             RoomUser.audience.strobeMode(true);
-            updateChat("","You hit the strobe!");
+            updateChat("","Vous avez touché le stroboscope !");
             strobe = true;
         }else{
             RoomUser.audience.strobeMode(false);
@@ -626,7 +627,7 @@ function initUIListeners()
                 $("#strobe-menu").click();
             }
             RoomUser.audience.lightsOut(true);
-            updateChat("","You set the mood!");
+            updateChat("","Vous définissez l'ambiance !");
             lights = true;
         }else{
             RoomUser.audience.lightsOut(false);
@@ -664,7 +665,7 @@ function initUIListeners()
         if (!autorespond) {
             API.removeEventListener(API.CHAT,chat);
         } else {
-            awaymsg = prompt("The message the you enter here will be sent if someone mentions you.\nAdd /user/ to the beginning of your afk message if you want to reply to the person who mentions you.","/me is away from keyboard.");
+            awaymsg = prompt("Le message que vous entrez ici sera envoyé si quelqu'un parle de vous.\nAjoutez /user/ au début de votre message afk si vous voulez répondre à la personne qui vous parle.","/me est à partir du clavier.");
             if(awaymsg != null){
                 !autorespond;
                 $("#plugbot-btn-autorespond").css("color", autorespond, "#ED1C24");
