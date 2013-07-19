@@ -730,7 +730,7 @@ function initUIListeners()
         }
     });
 	$("#plugbot-btn-aboutplug").on("click", function() {
-        alert("realityg Plug BETA 0.5.5 (Juillet 2013)\n/n@author : FabienRG\n@helper : OriginNRG\n@website : http://RealityGaming.fr/");
+        alert("realityg Plug BETA 0.5.5 (Juillet 2013)\n\n@author : FabienRG\n@helper : OriginNRG\n@website : http://RealityGaming.fr/");
     });
 	
 
